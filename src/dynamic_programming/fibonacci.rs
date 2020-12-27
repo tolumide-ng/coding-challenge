@@ -37,3 +37,9 @@ pub fn memoized_fib(num: usize) -> usize {
     let mut result = Fibi::new(num);
     return result.get_fibi(num);
 }
+
+#[test]
+fn fibonacci() {
+    assert_eq!(memoized_fib(50), 12586269025);
+    assert_eq!(10946, memoized_fib(21));
+}

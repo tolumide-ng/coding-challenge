@@ -1,14 +1,11 @@
-// pub mod fib;
 mod dynamic_programming;
 
-pub use crate::dynamic_programming::fibonacci;
-
-// use dynamic_programming::fib;
+// pub use crate::dynamic_programming::fibonacci;
+pub use crate::dynamic_programming::grid_traveller::grid_traveller;
 
 fn main() {
-    println!("fahint talking <>>>>>>{:?}", fibonacci::fib(6));
-    println!("fahint talking <>>>>>>{:?}", fibonacci::fib(7));
-    println!("fahint talking <>>>>>>{:?}", fibonacci::fib(8));
-    // println!("fahint talking <>>>>>>{:?}", fibonacci::fib(50));
-    println!("fahint talking <>>>>>>{:?}", fibonacci::memoized_fib(50));
+    println!(
+        "WINDELLIN ---->>>>> {:#?}",
+        grid_traveller::memoized_grid_traveller(5, 3)
+    );
 }
