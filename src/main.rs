@@ -1,12 +1,10 @@
-mod dynamic_programming;
+pub mod dynamic_programming;
 
-// pub use crate::dynamic_programming::fibonacci;
-// pub use crate::dynamic_programming::grid_traveller::grid_traveller;
-pub use crate::dynamic_programming::can_sum::can_sum;
+use dynamic_programming::can_sum::can_sum;
 
 fn main() {
     println!(
-        "WINDELLIN ---->>>>> {:#?}",
-        can_sum::recursive_can_sum(7, vec![2, 3])
+        "Hello, world! {:?}",
+        can_sum::memoized_can_sum(300, vec![7, 14])
     );
 }
