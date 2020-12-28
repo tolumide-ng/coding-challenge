@@ -42,6 +42,14 @@ pub mod grid_traveller {
             }
         }
         let mut result = Grid::new(std::cmp::max(m, n));
-        return result.get_paths(2, 3);
+        return result.get_paths(m, n);
     }
+}
+
+#[test]
+fn test_grid_traveller() {
+    use grid_traveller::*;
+
+    assert_eq!(memoized_grid_traveller(2, 3), 3);
+    assert_eq!(memoized_grid_traveller(5, 3), 15);
 }
