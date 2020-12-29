@@ -1,6 +1,6 @@
-use std::cmp;
-
 pub mod grid_traveller {
+    use std::cmp;
+
     use std::collections::HashMap;
     pub fn grid_traveller(m: usize, n: usize) -> usize {
         if m == 1 && n == 1 {
