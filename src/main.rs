@@ -7,6 +7,6 @@ fn main() {
     println!(
         "Hello, world! {:?}",
         // how_sum::recursive_how_sum(7, vec![2, 3])
-        how_sum::recursive_how_sum(7, vec![5, 3, 4, 7]).unwrap()
+        how_sum::memoized_how_sum(300, vec![14, 7])
     );
 }

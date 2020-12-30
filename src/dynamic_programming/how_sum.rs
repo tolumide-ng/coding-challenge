@@ -10,7 +10,7 @@ pub mod how_sum {
 
     struct HowSum {
         coins: Vec<usize>,
-        memo: HashMap<i64, Rc<RefCell<Option<Vec<usize>>>>>,
+        memo: HashMap<i64, Option<Vec<usize>>>,
     }
 
     impl HowSum {
@@ -54,10 +54,8 @@ pub mod how_sum {
         impl HowSum {
             fn get_memoized_sum(&mut self, target_sum: i64) -> Option<Vec<usize>> {
                 if self.memo.contains_key(&target_sum) {
-                    println!("WENDY'S PLACE {:?}", self.memo.get(&target_sum));
-                    // let value = *self.memo.get(&target_sum).unwrap().clone();
-                    return *(self.memo.get(&target_sum).unwrap()).borrow();
-                    // return value;
+                    let value = self.memo.get(&target_sum);
+                    return value.unwrap().clone();
                 }
 
                 if target_sum == 0 {
@@ -74,28 +72,24 @@ pub mod how_sum {
                 for coin in &all_coins {
                     let new_target = target_sum - *coin as i64;
                     let recursive_result = self.get_memoized_sum(new_target);
+
                     if recursive_result.is_some() {
-                        // let mut unwrapped_recursive_result = recursive_result.unwrap();
-                        // unwrapped_recursive_result.push(*coin);
-                        let result = self.memo.entry(target_sum).or_insert(Rc::new(RefCell::new(recursive_result)));
-                        println!("THE RESULT-------------- {:?}", result);
+                        recursive_result.clone().unwrap().push(*coin);
 
-                        // result.borrow_mut().unwrap().push(*coin);
-                        result.get_mut().unwrap().push(*coin);
+                        self.memo.insert(target_sum, recursive_result);
 
-                        // result.as_ref().unwrap().push(*coin);
-                        // return *self.memo.get(&target_sum).unwrap().as_ref();
-                        let value = *self.memo.get(&target_sum).unwrap();
-                        return *value.get_mut();
+                        let val = self.memo.get(&target_sum).unwrap().clone();
+
+                        return val;
                     }
                 }
 
-                self.memo.entry(target_sum).or_insert(Rc::new(RefCell::new(None)));
+                self.memo.entry(target_sum).or_insert(None);
                 return None;
             }
         }
 
-        let result = HowSum::new(coins);
+        let mut result = HowSum::new(coins);
         return result.get_memoized_sum(target_sum);
     }
 }
@@ -110,4 +104,17 @@ fn test_recursive_how_sum() {
         false
     );
     assert_eq!(recursive_how_sum(7, vec![2, 4]).is_none(), true);
+}
+
+#[test]
+
+fn test_memoized_how_sum() {
+    use how_sum::memoized_how_sum;
+
+    assert_eq!(
+        memoized_how_sum(7, vec![5, 3, 4, 7]).unwrap().contains(&5),
+        false
+    );
+    assert_eq!(memoized_how_sum(7, vec![2, 4]).is_none(), true);
+    assert_eq!(memoized_how_sum(300, vec![7, 14]).is_none(), true);
 }
