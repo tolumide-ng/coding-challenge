@@ -4,9 +4,7 @@
 
 pub mod how_sum {
 
-    use std::cell::RefCell;
     use std::collections::HashMap;
-    use std::rc::Rc;
 
     struct HowSum {
         coins: Vec<usize>,

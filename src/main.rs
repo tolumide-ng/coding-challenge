@@ -7,6 +7,7 @@ use dynamic_programming::best_sum::best_sum;
 fn main() {
     println!(
         "Hello, world! {:?}",
-        best_sum::recursive_best_sum(7, vec![5, 3, 4, 7])
+        // best_sum::memoized_best_sum(100, vec![1, 2, 5, 25, 30])
+        best_sum::memoized_best_sum(100, vec![1, 2, 5, 25, 30])
     );
 }
