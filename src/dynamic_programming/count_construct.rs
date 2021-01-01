@@ -8,7 +8,7 @@ pub mod count_construct {
 
     struct CountConstruct {
         dic: Vec<&'static str>,
-        memo: HashMap<String, bool>,
+        memo: HashMap<String, usize>,
         total_count: usize,
     }
 
@@ -24,32 +24,66 @@ pub mod count_construct {
 
     pub fn recursive_count_construct(target: &str, dic: Vec<&'static str>) -> usize {
         impl CountConstruct {
-            pub fn get_construct_count(&mut self, target: &str) -> usize {
+            pub fn get_construct_count(&self, target: &str) -> usize {
                 if target.len() == 0 {
                     return 1;
                 }
 
-                let all_dics = &self.dic.clone();
+                let mut total_count = 0;
 
-                for word in all_dics {
+                for word in &self.dic {
                     if target.starts_with(word) {
                         let (_, new_target) = target.split_at(word.len());
                         let result = self.get_construct_count(new_target);
 
                         if result > 0 {
-                            self.total_count += 1;
-
-                            return self.total_count;
+                            total_count += result;
                         }
                     }
                 }
 
-                return 0;
+                return total_count;
+            }
+        }
+
+        let result = CountConstruct::new(dic);
+        return result.get_construct_count(target);
+    }
+
+    pub fn memoized_count_construct(target: &str, dic: Vec<&'static str>) -> usize {
+        impl CountConstruct {
+            pub fn get_memoized_count_construct(&mut self, target: &str) -> usize {
+                if self.memo.contains_key(&target.to_owned()) {
+                    let value = self.memo.get(target).unwrap();
+                    return *value;
+                }
+
+                if target.len() == 0 {
+                    return 1;
+                }
+
+                let mut total_count = 0;
+
+                let all_dics = self.dic.clone();
+
+                for word in all_dics {
+                    if target.starts_with(word) {
+                        let (_, new_target) = target.split_at(word.len());
+                        let result = self.get_memoized_count_construct(new_target);
+                        if result > 0 {
+                            self.memo.insert(new_target.to_owned(), result);
+                            total_count += result;
+                        }
+                    }
+                }
+
+                self.memo.insert(target.to_owned(), total_count);
+                return total_count;
             }
         }
 
         let mut result = CountConstruct::new(dic);
-        return result.get_construct_count(target);
+        return result.get_memoized_count_construct(target);
     }
 }
 
@@ -60,5 +94,41 @@ fn recursive_count_construct() {
     assert_eq!(
         recursive_count_construct("purple", vec!["purp", "p", "ur", "le", "purpl"]),
         2
-    )
+    );
+    assert_eq!(
+        recursive_count_construct("abcdef", vec!["ab", "abc", "cd", "def", "abcd"]),
+        1
+    );
+    assert_eq!(
+        recursive_count_construct(
+            "enterapotentpot",
+            vec!["a", "p", "ent", "enter", "ot", "o", "t"]
+        ),
+        4
+    );
+    assert_eq!(
+        recursive_count_construct("abcdef", vec!["ab", "abc", "cd", "def", "abcd"]),
+        1
+    );
+}
+
+#[test]
+fn memoized_count_construct() {
+    use count_construct::memoized_count_construct;
+
+    assert_eq!(
+        memoized_count_construct("purple", vec!["purp", "p", "ur", "le", "purpl"]),
+        2
+    );
+    assert_eq!(
+        memoized_count_construct("abcdef", vec!["ab", "abc", "cd", "def", "abcd"]),
+        1
+    );
+    assert_eq!(
+        memoized_count_construct(
+            "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef",
+            vec!["e", "ee", "eee", "eeee", "eeeee", "eeeeee", "eeeeeee"]
+        ),
+        0
+    );
 }
