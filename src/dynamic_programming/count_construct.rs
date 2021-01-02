@@ -9,7 +9,7 @@ pub mod count_construct {
     struct CountConstruct {
         dic: Vec<&'static str>,
         memo: HashMap<String, usize>,
-        total_count: usize,
+        // total_count: usize,
     }
 
     impl CountConstruct {
@@ -17,7 +17,7 @@ pub mod count_construct {
             return CountConstruct {
                 dic,
                 memo: HashMap::new(),
-                total_count: 0,
+                // total_count: 0,
             };
         }
     }

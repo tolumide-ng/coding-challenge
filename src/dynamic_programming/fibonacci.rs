@@ -38,8 +38,28 @@ pub fn memoized_fib(num: usize) -> usize {
     return result.get_fibi(num);
 }
 
+pub fn modulo_fib(num: usize) -> usize {
+    let mut prev = 0;
+    let mut curr = 1;
+
+    for _ in 1..num {
+        let [old, _] = [prev, curr];
+
+        prev = curr;
+        curr += old;
+    }
+
+    return curr;
+}
+
 #[test]
 fn fibonacci() {
     assert_eq!(memoized_fib(50), 12586269025);
     assert_eq!(10946, memoized_fib(21));
+}
+
+#[test]
+fn fibonacci_modulo() {
+    assert_eq!(modulo_fib(50), 12586269025);
+    assert_eq!(10946, modulo_fib(21));
 }
