@@ -1,6 +1,6 @@
-/// Write a function `howSum(targetSum, numbers)` that takes in a targetSum and an array of numbers as arguments.
-/// The function should return an array containing any combination of elements that add up exactly to the targetSum.
-/// If there is no combination that adds up to the targetSum it should return null
+/// Write a function `howSum(target_sum, numbers)` that takes in a target_sum and an array of numbers as arguments.
+/// The function should return an array containing any combination of elements that add up exactly to the target_sum.
+/// If there is no combination that adds up to the target_sum it should return null
 
 pub mod how_sum {
 
@@ -20,19 +20,19 @@ pub mod how_sum {
         }
     }
 
-    pub fn recursive_how_sum(targetSum: i64, coins: Vec<usize>) -> Option<Vec<usize>> {
+    pub fn recursive_how_sum(target_sum: i64, coins: Vec<usize>) -> Option<Vec<usize>> {
         impl HowSum {
-            pub fn get_recursive_sum(&self, targetSum: i64) -> Option<Vec<usize>> {
-                if targetSum == 0 {
+            pub fn get_recursive_sum(&self, target_sum: i64) -> Option<Vec<usize>> {
+                if target_sum == 0 {
                     return Some(Vec::new());
                 }
-                if targetSum < 0 {
+                if target_sum < 0 {
                     return None;
                 }
                 // BAD CODE
                 let all_coins = self.coins.clone();
                 for coin in &all_coins {
-                    let new_target = targetSum - *coin as i64;
+                    let new_target = target_sum - *coin as i64;
                     let recursive_result = self.get_recursive_sum(new_target);
                     if recursive_result.is_some() {
                         let mut unwrapped_recursive_result = recursive_result.unwrap();
@@ -45,7 +45,7 @@ pub mod how_sum {
         }
 
         let result = HowSum::new(coins);
-        return result.get_recursive_sum(targetSum);
+        return result.get_recursive_sum(target_sum);
     }
 
     pub fn memoized_how_sum(target_sum: i64, coins: Vec<usize>) -> Option<Vec<usize>> {
