@@ -85,6 +85,31 @@ pub mod can_sum {
         let mut result = CanSum::new(coins);
         return result.get_memoized_sum(target);
     }
+
+    pub fn tabulated_can_sum(target: i64, coins: Vec<u64>) -> bool {
+        impl CanSum {
+            fn get_tabulated_sum(&self, target: i64) -> bool {
+                let mut vec_store = vec![false; target as usize + 1];
+
+                vec_store[0] = true;
+
+                for value in 0..=target {
+                    for coin in &self.coins {
+                        let current_position = value as usize + *coin as usize;
+                        if current_position < vec_store.len() && vec_store[value as usize] {
+                            println!("FROM WITHIN HERE {:?}", current_position);
+                            vec_store[current_position] = true;
+                        }
+                    }
+                }
+
+                return vec_store[target as usize];
+            }
+        }
+
+        let result = CanSum::new(coins);
+        return result.get_tabulated_sum(target);
+    }
 }
 
 #[test]
@@ -95,6 +120,7 @@ fn recursive_cansum_test() {
     assert_eq!(recursive_can_sum(7, vec![5, 3]), false);
 }
 
+#[test]
 fn memoized_cansum_total() {
     use can_sum::memoized_can_sum;
     assert_eq!(memoized_can_sum(7, vec![2, 3]), true);
@@ -102,4 +128,14 @@ fn memoized_cansum_total() {
     assert_eq!(memoized_can_sum(7, vec![5, 3]), false);
     assert_eq!(memoized_can_sum(300, vec![7, 14]), false);
     assert_eq!(memoized_can_sum(300, vec![7, 3]), true);
+}
+
+#[test]
+fn tabulated_cansum() {
+    use can_sum::tabulated_can_sum;
+    assert_eq!(tabulated_can_sum(7, vec![2, 3]), true);
+    assert_eq!(tabulated_can_sum(8, vec![2, 3]), true);
+    assert_eq!(tabulated_can_sum(7, vec![5, 3]), false);
+    assert_eq!(tabulated_can_sum(300, vec![7, 14]), false);
+    assert_eq!(tabulated_can_sum(300, vec![7, 3]), true);
 }
