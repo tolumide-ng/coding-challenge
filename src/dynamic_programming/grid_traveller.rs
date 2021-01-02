@@ -44,6 +44,25 @@ pub mod grid_traveller {
         let mut result = Grid::new(std::cmp::max(m, n));
         return result.get_paths(m, n);
     }
+
+    pub fn tabulated_grid_traveller(m: usize, n: usize) -> usize {
+        let mut two_d_vec: Vec<Vec<usize>> = vec![vec![0; n + 1]; m + 1];
+
+        two_d_vec[1][1] = 1;
+
+        for row in 0..=m {
+            for col in 0..=n {
+                if row < m {
+                    two_d_vec[row + 1][col] = two_d_vec[row + 1][col] + two_d_vec[row][col];
+                }
+                if col < n {
+                    two_d_vec[row][col + 1] = two_d_vec[row][col + 1] + two_d_vec[row][col];
+                }
+            }
+        }
+
+        return two_d_vec[m][n];
+    }
 }
 
 #[test]
@@ -52,4 +71,13 @@ fn test_grid_traveller() {
 
     assert_eq!(memoized_grid_traveller(2, 3), 3);
     assert_eq!(memoized_grid_traveller(5, 3), 15);
+}
+
+#[test]
+fn tabulated_grid_traveller() {
+    use grid_traveller::tabulated_grid_traveller;
+
+    assert_eq!(tabulated_grid_traveller(3, 3), 6);
+    assert_eq!(tabulated_grid_traveller(5, 3), 15);
+    assert_eq!(tabulated_grid_traveller(2, 3), 3);
 }
