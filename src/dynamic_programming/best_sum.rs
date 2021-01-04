@@ -111,6 +111,53 @@ pub mod best_sum {
         let mut result = BestSum::new(coins);
         return result.get_memoized_sum(target);
     }
+
+    pub fn tabulated_best_sum(target: usize, coins: Vec<usize>) -> CoinType {
+        impl BestSum {
+            pub fn get_tabulated_sum(&self, target: usize) -> CoinType {
+                let mut vec_store: Vec<CoinType> = vec![None; target + 1];
+
+                let all_coins = &self.coins.clone().unwrap();
+
+                vec_store[0] = Some(vec![]);
+
+                for value in 0..=target {
+                    for coin in all_coins {
+                        let new_target = value + coin;
+                        if new_target <= target && vec_store[value].is_some() {
+                            let current_total: usize = vec_store[new_target]
+                                .as_ref()
+                                .unwrap_or(&vec![0])
+                                .iter()
+                                .sum();
+
+                            if vec_store[new_target].is_some() {
+                                let mut new_variant = vec_store[value].clone().unwrap();
+                                new_variant.push(*coin);
+
+                                let curr_variant = vec_store[new_target].clone().unwrap();
+
+                                if new_variant.len() < curr_variant.len() {
+                                    vec_store[new_target] = Some(new_variant);
+                                }
+                            } else if vec_store[new_target].is_none() {
+                                let mut new_val = vec_store[value].clone().unwrap();
+                                new_val.push(*coin);
+
+                                vec_store[new_target] = Some(new_val);
+                            }
+
+                            println!("THE VEC:::::::::::: {:?}", vec_store);
+                        }
+                    }
+                }
+
+                return vec_store[target].clone();
+            }
+        }
+        let result = BestSum::new(coins);
+        return result.get_tabulated_sum(target);
+    }
 }
 
 #[test]
@@ -137,4 +184,19 @@ fn test_memoized_best_sum() {
         memoized_best_sum(100, vec![1, 2, 5, 25, 30]),
         Some(vec![25, 25, 25, 25])
     );
+}
+
+#[test]
+fn test_tabulated_best_sum() {
+    use best_sum::tabulated_best_sum;
+
+    assert_eq!(tabulated_best_sum(7, vec![5, 7, 4, 3]), Some(vec![7]));
+    assert!(tabulated_best_sum(8, vec![2, 3, 5]).unwrap().contains(&5));
+    assert_eq!(tabulated_best_sum(8, vec![1, 4, 5]), Some(vec![4, 4]));
+    assert_eq!(tabulated_best_sum(100, vec![5, 20, 30]).unwrap().len(), 4);
+    assert_eq!(
+        tabulated_best_sum(100, vec![1, 2, 5, 25, 30]),
+        Some(vec![25, 25, 25, 25])
+    );
+    assert_eq!(tabulated_best_sum(8, vec![2, 3, 5, 4, 8, 4]), Some(vec![8]));
 }
