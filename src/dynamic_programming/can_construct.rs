@@ -103,6 +103,7 @@ pub mod can_construct {
                             if target.get(value..word_len).is_some()
                                 && value + word_len <= target.len()
                             {
+                                // if word.starts_with(target.get())
                                 vec_store[value + word_len] = true;
                             }
                         }
