@@ -100,11 +100,16 @@ pub mod can_construct {
                     for word in &the_dic {
                         if vec_store[value] {
                             let word_len = word.len();
-                            if target.get(value..word_len).is_some()
-                                && value + word_len <= target.len()
+                            let expected_len = word_len + value;
+                            if target.get(value..expected_len).is_some()
+                                && expected_len <= target.len()
                             {
+                                let obtained_word = target.get(value..expected_len).unwrap();
+
+                                if obtained_word == *word {
+                                    vec_store[value + word_len] = true;
+                                }
                                 // if word.starts_with(target.get())
-                                vec_store[value + word_len] = true;
                             }
                         }
                     }
