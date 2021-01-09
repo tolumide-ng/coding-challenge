@@ -59,6 +59,50 @@ pub mod all_construct {
         let result = AllConstructs::new(dic, target.to_owned());
         return result.get_all_recursive_constructs(target);
     }
+
+    type TabReturnType = Vec<Vec<&'static str>>;
+
+    pub fn tabulated_all_construct(target: &'static str, dic: Vec<&'static str>) -> TabReturnType {
+        // use std::collections::HashMap;
+        impl AllConstructs {
+            pub fn get_all_tabulated_constructs(&self, target: &'static str) -> TabReturnType {
+                let mut dic_store: Vec<TabReturnType> = vec![vec![]; target.len() + 1];
+                // let mut dic_store = HashMap::new();
+
+                dic_store[0].push(vec![]);
+
+                for index in 0..=target.len() {
+                    for word in &self.dic {
+                        let word_len = word.len();
+                        let expected_len = word_len + index;
+
+                        if target.get(index..expected_len).is_some() && expected_len <= target.len()
+                        {
+                            let obtained_word = target.get(index..expected_len).unwrap();
+                            if obtained_word == *word {
+                                let curr_val = dic_store[index].clone();
+
+                                if curr_val.len() >= 1 {
+                                    curr_val.iter().for_each(|val| {
+                                        let mut inner_val = val.clone();
+                                        inner_val.push(word);
+
+                                        dic_store[expected_len].push(inner_val);
+                                    });
+                                } else {
+                                    dic_store[expected_len].push(vec![word])
+                                }
+                            }
+                        }
+                    }
+                }
+
+                return dic_store[target.len()].clone();
+            }
+        }
+        let result = AllConstructs::new(dic, target.to_owned());
+        return result.get_all_tabulated_constructs(target);
+    }
 }
 
 #[test]
@@ -71,5 +115,22 @@ fn recsurive_all_constructs() {
     )
 }
 
-
 // 0 1 1 2 3 5 8
+
+#[test]
+fn tabulated_all_constructs() {
+    use all_construct::tabulated_all_construct;
+
+    assert_eq!(
+        tabulated_all_construct("abcdef", vec!["ab", "abc", "cd", "def", "abcd", "ef", "c"]).len(),
+        4
+    );
+    assert_eq!(
+        tabulated_all_construct("purple", vec!["purp", "p", "ur", "le", "purpl"]).len(),
+        2
+    );
+    assert_eq!(
+        tabulated_all_construct("aaaaaaaaaaaaz", vec!["a", "aa", "aaa", "aaaa", "aaaaa"]).len(),
+        0
+    );
+}
