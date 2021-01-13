@@ -5,7 +5,7 @@ use std::rc::Rc;
 #[derive(Clone, Debug)]
 struct LinkedNode {
     value: i32,
-    next: Option<Rc<LinkedNode>>,
+    next: Option<Box<RefCell<LinkedNode>>>,
 }
 
 #[derive(Clone, Debug)]
@@ -34,7 +34,7 @@ impl MyLinkedList {
         for _ in 0..=index as usize {
             match curr_val.next {
                 // Some(the_val) => curr_val = the_val.into_inner().as_ref().clone(),
-                Some(the_val) => curr_val = the_val.as_ref().clone(),
+                Some(the_val) => curr_val = the_val.as_ref().clone().borrow(),
 
                 None => {}
             }
@@ -51,7 +51,7 @@ impl MyLinkedList {
             Some(the_list) => {
                 let new_node = LinkedNode {
                     value: val,
-                    next: Some(Rc::new(the_list)),
+                    next: Some(Box::new(the_list)),
                 };
                 self.head = Some(new_node);
             }
@@ -68,33 +68,54 @@ impl MyLinkedList {
     }
 
     fn add_to_tail(&mut self, val: i32) {
-        let curr_tail = mem::take(&mut self.tail);
+        match &self.head {
+            Some(head) => {
+                // let mut new_head = mem::take(&mut self.head).unwrap();
+                let mut new_head = self.head.clone().unwrap();
 
-        match curr_tail {
-            Some(mut value) => {
-                value.next = Some(Rc::new(LinkedNode {
-                    value: val,
-                    next: None,
-                }));
-            }
-            None => {
-                // can't add an item to tail if there was nothing there in the first place
-            }
-        }
-    }
-
-    fn add_at_index(&mut self, val: i32) {
-        let mut curr_val: LinkedNode = self.head.clone().unwrap();
-        let we_move: Option<LinkedNode> = None;
-
-        for value in 0..val {
-            if value == val {
-                match curr_val.next {
-                    // Some(the_val) => curr_val = mem::take()
+                for index in 0..self.total {
+                    match new_head.next {
+                        Some(the_next) => new_head = *the_next,
+                        None => {}
+                    }
                 }
             }
+            None => {
+                self.head = Some(LinkedNode {
+                    value: val,
+                    next: None,
+                });
+
+                self.tail = self.head.clone();
+            }
         }
+        // let curr_tail = mem::take(&mut self.head);
+
+        // match curr_tail {
+        //     Some(mut value) => {
+        //         value.next = Some(Rc::new(LinkedNode {
+        //             value: val,
+        //             next: None,
+        //         }));
+        //     }
+        //     None => {
+        //         // can't add an item to tail if there was nothing there in the first place
+        //     }
+        // }
     }
+
+    // fn add_at_index(&mut self, val: i32) {
+    //     let mut curr_val: LinkedNode = self.head.clone().unwrap();
+    //     let we_move: Option<LinkedNode> = None;
+
+    //     for value in 0..val {
+    //         if value == val {
+    //             match curr_val.next {
+    //                 // Some(the_val) => curr_val = mem::take()
+    //             }
+    //         }
+    //     }
+    // }
 }
 
 #[test]
