@@ -1,5 +1,6 @@
 [workspace]
 
 members=[
-    "dynamic_pg"
+    "dynamic_pg",
+    "data_structures"
 ]
