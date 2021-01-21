@@ -18,7 +18,6 @@ struct LinkedList {
 
 impl LinkedList {
     fn remove_nth_from_end(&mut self, index_from_end: usize) -> Option<Rc<Node>> {
-        
         let mut list_length = 0;
         let dummy_head = Rc::new(Node {
             val: 3,

@@ -1,4 +1,6 @@
 /// Find the point of intersection of two linked lists
+/// Space complexity: O(m)
+/// Time complexity O(mn)
 ///
 use std::rc::Rc;
 
