@@ -67,7 +67,7 @@ impl LinkedList {
                         the_b = the_derived_b.next;
                     }
 
-                    if assert_eq! {Rc::as_ptr(&the_a.unwrap()), Rc::as_ptr(&the_b.unwrap())} {
+                    if Rc::as_ptr(&the_a.unwrap()) == Rc::as_ptr(&the_b.unwrap()) {
                         intercept = the_a;
                         not_found = false;
                     }

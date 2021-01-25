@@ -125,7 +125,7 @@ pub mod best_sum {
                     for coin in all_coins {
                         let new_target = value + coin;
                         if new_target <= target && vec_store[value].is_some() {
-                            let current_total: usize = vec_store[new_target]
+                            let _current_total: usize = vec_store[new_target]
                                 .as_ref()
                                 .unwrap_or(&vec![0])
                                 .iter()

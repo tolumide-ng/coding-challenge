@@ -1,21 +1,33 @@
-struct Node {
-    val: i32,
-    next: Option<Box<Node>>,
+pub type LinkedType = Option<Box<Node>>;
+
+pub struct Node {
+    pub val: i32,
+    pub next: Option<Box<Node>>,
 }
 
 #[derive(Default)]
-struct MyLinkedList {
-    head: Option<Box<Node>>,
+pub struct MyLinkedList {
+    pub head: Option<Box<Node>>,
 }
 
+// trait Foo: CloneFoo {};
+
+// trait CloneFoo {
+//     fn clone_foo(&self) -> Box<dyn Foo>;
+// }
+
+// imp CloneFoo for MyLinkedList {
+
+// }
+
 impl MyLinkedList {
-    fn new() -> Self {
+    pub fn new() -> Self {
         Default::default()
     }
 
     /** Get the value of the index-th node in the linked list. If the index is invalid, return -1 */
     /// O(n)
-    fn get(&self, index: i32) -> i32 {
+    pub fn get(&self, index: i32) -> i32 {
         let mut curr = match self.head {
             Some(ref a) => a,
             None => return -1,
@@ -33,7 +45,7 @@ impl MyLinkedList {
     }
 
     /// O(1)
-    fn add_at_head(&mut self, val: i32) {
+    pub fn add_at_head(&mut self, val: i32) {
         self.head = Some(Box::new(Node {
             val,
             next: self.head.take(),
@@ -41,7 +53,7 @@ impl MyLinkedList {
     }
 
     /// O(n)
-    fn add_at_tail(&mut self, val: i32) {
+    pub fn add_at_tail(&mut self, val: i32) {
         let mut curr = match self.head {
             Some(ref mut a) => a,
             None => {

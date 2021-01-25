@@ -36,12 +36,12 @@ impl LinkedList {
 
         match self.second_head {
             Some(ref head) => {
-                let mut curr = head;
+                let curr = head;
                 while head.next.is_some() && !is_intercept {
                     vec_safe.iter().map(|val| {
-                        if assert_eq!(Rc::as_ptr(curr), Rc::as_ptr(val)) {
+                        if Rc::as_ptr(curr) == Rc::as_ptr(val) {
                             is_intercept = true;
-                            intercept = Some(*curr);
+                            intercept = Some(Rc::clone(curr));
                         }
                     });
                 }
