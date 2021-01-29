@@ -7,8 +7,8 @@ use std::rc::Rc;
 
 #[derive(PartialEq, Debug)]
 pub struct LinkedList {
-    head: NodeOption,
-    tail: NodeOption,
+    pub head: NodeOption,
+    pub tail: NodeOption,
     pub length: usize,
 }
 
