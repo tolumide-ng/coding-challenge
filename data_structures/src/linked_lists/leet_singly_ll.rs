@@ -1,11 +1,12 @@
 pub type LinkedType = Option<Box<Node>>;
 
+#[derive(Debug)]
 pub struct Node {
     pub val: i32,
     pub next: Option<Box<Node>>,
 }
 
-#[derive(Default)]
+#[derive(Default, Debug)]
 pub struct MyLinkedList {
     pub head: Option<Box<Node>>,
 }
