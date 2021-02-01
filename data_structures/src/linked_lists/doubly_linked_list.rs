@@ -208,6 +208,59 @@ where
         the_elem.borrow_mut().next = Some(Rc::clone(&next_elem.as_ref().unwrap()));
         next_elem.unwrap().borrow_mut().prev = Some(Rc::downgrade(&the_elem));
     }
+
+    pub fn delete_nth_element(&mut self, index: usize) {
+        if index >= self.length {
+            return;
+        }
+
+        if index == 0 {
+            self.pop_head();
+            return;
+        }
+
+        if index == self.length - 1 {
+            self.pop_end();
+            return;
+        }
+
+        let mut curr_elem = Some(Rc::clone(self.head.as_ref().unwrap()));
+        let mut curr_index = 1;
+        let mut next_elem: DNodeOption<T> = None;
+
+        while curr_index < index {
+            println!("within the cubicle");
+            curr_index += 1;
+            let prev_elem = Some(Rc::clone(&curr_elem.as_ref().unwrap()));
+
+            curr_elem = Some(Rc::clone(
+                &prev_elem.as_ref().unwrap().borrow().next.as_ref().unwrap(),
+            ));
+        }
+
+        if curr_elem.as_ref().unwrap().borrow().next.is_some() {
+            next_elem = Some(Rc::clone(
+                curr_elem
+                    .as_ref()
+                    .unwrap()
+                    .borrow()
+                    .next
+                    .as_ref()
+                    .unwrap()
+                    .as_ref()
+                    .borrow()
+                    .next
+                    .as_ref()
+                    .unwrap(),
+            ));
+        }
+
+        curr_elem.as_ref().unwrap().borrow_mut().next =
+            Some(Rc::clone(next_elem.as_ref().unwrap()));
+
+        next_elem.as_ref().unwrap().borrow_mut().prev =
+            Some(Rc::downgrade(curr_elem.as_ref().unwrap()));
+    }
 }
 
 mod test_doubly_linked_list {
@@ -407,5 +460,71 @@ mod test_doubly_linked_list {
         list.add_element_to_nth_position("node_20".to_string(), 20);
         assert_eq!(list.head.as_ref().unwrap().borrow().data, "node_0");
         assert_ne!(list.tail.as_ref().unwrap().borrow().data, "node_20");
+    }
+
+    #[test]
+    fn test_delete_nth_element() {
+        let mut list = DLinkedList::new(1);
+        list.append_end(2);
+        list.append_end(3);
+        list.append_end(4);
+
+        // Asserts that the 0th element is 1
+        assert_eq!(list.head.as_ref().unwrap().borrow().data, 1);
+        // assert_eq!(list.head.as_ref().borrow().data, 1);
+        list.delete_nth_element(0);
+        // Asserts that the 0th element after the deletion is 2
+        assert_eq!(list.head.as_ref().unwrap().borrow().data, 2);
+        match list.head {
+            Some(ref the_head) => {
+                assert_eq!(the_head.as_ref().borrow().data, 2);
+
+                match the_head.as_ref().borrow().next {
+                    Some(ref next_element) => {
+                        assert_eq!(next_element.as_ref().borrow().data, 3);
+                    }
+                    None => {}
+                }
+            }
+            None => {}
+        }
+
+        list.delete_nth_element(1);
+        // Asserts that the 0th element after the deletion is still 2
+        match list.head {
+            Some(ref the_head) => {
+                assert_eq!(the_head.as_ref().borrow().data, 2);
+
+                match the_head.as_ref().borrow().next {
+                    Some(ref next_element) => {
+                        // Asserts that the first element after the deletion is now 4
+                        assert_eq!(next_element.as_ref().borrow().data, 4);
+                    }
+                    None => {}
+                }
+            }
+            None => {}
+        }
+
+        // Assert deletion of the last element on the linked list
+        list.delete_nth_element(3);
+
+        match list.tail {
+            Some(ref the_tail) => {
+                assert_eq!(the_tail.as_ref().borrow().data, 4);
+            }
+            None => {}
+        }
+
+        //  Asserts the list does not crash when a user tries to delete a non existing element
+        list.delete_nth_element(8);
+        assert_eq!(list.tail.as_ref().unwrap().borrow().data, 4);
+
+        list.delete_nth_element(0);
+        list.delete_nth_element(0);
+
+        // Asserts the function does not crash when a user tries to delete an empty list
+        list.delete_nth_element(0);
+        assert!(list.head.as_ref().is_none());
     }
 }
