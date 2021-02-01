@@ -4,6 +4,8 @@ pub mod linked_cycle_pos;
 // pub mod linked_list_interception;
 pub mod linked_lists_intercept;
 // pub mod remove_nth_node_from_end;
+pub mod dnode;
+pub mod doubly_linked_list;
 pub mod linked_palindrome;
 pub mod linked_rcs;
 pub mod node;
