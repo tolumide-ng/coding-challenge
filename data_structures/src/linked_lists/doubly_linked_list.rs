@@ -121,7 +121,6 @@ where
 
             if self.length > 1 {
                 for _ in 0..self.length - 2 {
-                    // println!("WE WERE HERE AND IS WHAT IT READS")
                     temp = iterator.next();
                 }
             }
@@ -208,8 +207,6 @@ where
 
         the_elem.borrow_mut().next = Some(Rc::clone(&next_elem.as_ref().unwrap()));
         next_elem.unwrap().borrow_mut().prev = Some(Rc::downgrade(&the_elem));
-
-        println!("THE LIST ITSELF {:#?}", self.head);
     }
 }
 
