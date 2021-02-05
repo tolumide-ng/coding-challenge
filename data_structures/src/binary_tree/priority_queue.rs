@@ -217,7 +217,7 @@ where
         return None;
     }
 
-    pub fn change_prority(&mut self, index: usize, node: Node<T>) {
+    pub fn replace_element(&mut self, index: usize, node: Node<T>) {
         if index < self.size {
             let old_value = std::mem::replace(&mut self.heap[index], node);
             if node.weight > old_value.weight {
@@ -229,8 +229,36 @@ where
         }
     }
 
+    pub fn change_prority(&mut self, index: usize, weight: usize) {
+        if self.size > index {
+            let old_value = self.heap[index];
+            let _ = std::mem::replace(
+                &mut self.heap[index],
+                Node {
+                    node: old_value.node,
+                    weight: weight as i8,
+                    time_added: old_value.time_added,
+                },
+            );
+            if weight > old_value.weight as usize {
+                self.shift_down(index)
+            }
+
+            if weight < old_value.weight as usize {
+                self.shift_up(index);
+            }
+        }
+    }
+
     pub fn total_length(&self) -> usize {
         return self.size;
+    }
+
+    pub fn get_min(&self) -> Option<T> {
+        if self.size > 0 {
+            return Some(self.heap[0].node);
+        }
+        return None;
     }
 }
 
@@ -325,5 +353,39 @@ mod test_min_priority {
         let min = tree.extract_min();
 
         assert_eq!(min.unwrap(), "E");
+    }
+
+    #[test]
+    fn test_change_priority() {
+        let mut tree = BinaryHeap::new(10);
+
+        tree.insert(TheNode {
+            node: "A",
+            weight: 5,
+        });
+        tree.insert(TheNode {
+            node: "B",
+            weight: 3,
+        });
+        tree.insert(TheNode {
+            node: "C",
+            weight: 1,
+        });
+        tree.insert(TheNode {
+            node: "D",
+            weight: 100,
+        });
+        tree.insert(TheNode {
+            node: "E",
+            weight: 5,
+        });
+
+        assert_eq!(tree.get_min().unwrap(), "C");
+
+        tree.change_prority(0, 3);
+
+        assert_ne!(tree.get_min().unwrap(), "C");
+
+        assert_eq!(tree.get_min().unwrap(), "B");
     }
 }
