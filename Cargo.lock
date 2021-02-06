@@ -3,6 +3,9 @@
 [[package]]
 name = "algorithms"
 version = "0.1.0"
+dependencies = [
+ "data_structures",
+]
 
 [[package]]
 name = "data_structures"

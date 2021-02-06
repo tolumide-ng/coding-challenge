@@ -9,6 +9,7 @@ pub mod doubly_linked_list;
 pub mod linked_palindrome;
 pub mod linked_rcs;
 pub mod node;
+pub mod nth_from_last;
 pub mod odd_even_linked_lists;
 pub mod remove_linked_elements;
 pub mod reversed_linked_lists;
