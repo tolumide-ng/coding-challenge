@@ -28,9 +28,9 @@ where
 
 #[derive(Debug, Clone)]
 pub struct BinaryHeap<T> {
-    heap: Vec<Node<T>>,
+    pub heap: Vec<Node<T>>,
     max_size: usize,
-    size: usize,
+    pub size: usize,
     realistic_size: usize,
 }
 
@@ -142,17 +142,8 @@ where
             if current.weight < parent.weight
                 || (current.weight == parent.weight && current.time_added < parent.time_added)
             {
-                // println!("BEFORE REPLACEMENT {:#?}", self);
-                // println!("-------------------------WE'RE HERE NOW-------------------------");
-                // println!("current {:#?}", current);
-                // println!("PARENT {:#?}", parent);
                 let _ = std::mem::replace(&mut self.heap[parent_index], current);
                 let _ = std::mem::replace(&mut self.heap[index], parent);
-
-                // println!(
-                //     "**********************AFTER REPLACEMENT********************** {:#?}",
-                //     self
-                // );
 
                 self.shift_up(parent_index);
             }
@@ -162,7 +153,6 @@ where
     pub fn insert(&mut self, new_node: TheNode<T>) {
         if self.size != self.max_size {
             self.size += 1;
-            // let new_node = Node::new(data, self.size as i8, self.size as u8);
 
             self.heap.push(Node {
                 node: new_node.node,
@@ -170,18 +160,12 @@ where
                 weight: new_node.weight,
             });
 
-            // println!(
-            //     "WHAT THE NEW LIST LOOKS LIKE??????((((((((((((((((((({:#?})))))))))))))))))))))",
-            //     self
-            // );
-
             self.shift_up(self.size - 1);
         }
     }
 
     pub fn extract_min(&mut self) -> Option<T> {
         if self.size > 1 {
-            // let result = self.heap[0];
             let last_value = self.heap.pop().unwrap();
             self.size -= 1;
             let result = std::mem::replace(&mut self.heap[0], last_value);
