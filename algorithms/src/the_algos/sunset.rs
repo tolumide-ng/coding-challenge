@@ -32,6 +32,30 @@ pub fn east_to_west(list: Vec<usize>) -> Buildings {
     }
 }
 
+/// There is a much simpler approach where all that is needed is only one loop
+///
+pub fn east_to_west_revised(list: Vec<usize>) -> usize {
+    let mut buildings = vec![];
+    let total_buildings = list.len() - 1; // 6
+
+    // buildings.push(list[total_buildings]);
+
+    if list.len() > 0 {
+        let mut min_height = usize::MIN;
+
+        for height in 0..total_buildings {
+            let curr_building = list[total_buildings - height];
+            if curr_building > min_height {
+                min_height = curr_building;
+                buildings.push(curr_building);
+            }
+        }
+    }
+
+    return buildings.len();
+}
+
+#[cfg(test)]
 mod east_west_tests {
     use super::*;
 
@@ -50,5 +74,12 @@ mod east_west_tests {
         let all_buildings = east_to_west(vec![]);
 
         assert_eq!(all_buildings.total, 0);
+    }
+
+    #[test]
+    fn test_east_to_west_rev() {
+        let all_buildings = east_to_west_revised(vec![3, 7, 8, 3, 6, 1]);
+
+        assert_eq!(all_buildings, 3);
     }
 }

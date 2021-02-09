@@ -56,6 +56,7 @@ where
     }
 }
 
+#[cfg(test)]
 mod test_inorder_traversal {
     use super::*;
 
