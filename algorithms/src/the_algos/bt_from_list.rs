@@ -31,19 +31,12 @@ fn build_tree<T: Debug + Copy + Clone + Eq + PartialEq>(
     let inorder_len = inorder.len();
     let postorder_len = postorder.len();
 
-    return recursive_build_tree(
-        &inorder[0..inorder_len],
-        &postorder[0..postorder_len],
-        0,
-        inorder_len - 1,
-    );
+    return recursive_build_tree(&inorder[0..inorder_len], &postorder[0..postorder_len]);
 }
 
 fn recursive_build_tree<T: Debug + Copy + Clone + Eq + PartialEq>(
     inorder: &[T],
     postorder: &[T],
-    inorder_start: usize,
-    inorder_end: usize,
 ) -> BNode<T> {
     if inorder.len() == 0 {
         return None;
@@ -72,9 +65,9 @@ fn recursive_build_tree<T: Debug + Copy + Clone + Eq + PartialEq>(
 
     let mut the_node = TreeNode::new(postorder[root_index]);
 
-    let the_right = recursive_build_tree(all_right, postorder, inorder_start, inorder_end);
+    let the_right = recursive_build_tree(all_right, postorder);
 
-    let the_left = recursive_build_tree(all_left, postorder, inorder_start, inorder_end);
+    let the_left = recursive_build_tree(all_left, postorder);
 
     the_node.left = the_left;
     the_node.right = the_right;
