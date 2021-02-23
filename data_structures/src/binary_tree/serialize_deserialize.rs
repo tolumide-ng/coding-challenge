@@ -61,10 +61,11 @@ impl Codec {
                         let curr_str: &str = &the_curr.as_ref().borrow().val.to_string()[..];
 
                         serialized.push_str(curr_str);
+                        serialized.push_str(",");
                     }
                     None => {
-                        queue.push(None);
                         serialized.push_str("_");
+                        serialized.push_str(",");
                     }
                 }
             }
@@ -80,32 +81,9 @@ impl Codec {
         let mut root: TreeNodeType = None;
 
         if data.len() > 0 {
-            const RADIX: u32 = 10;
-
-            // get the vector to construct the binary tree from the String
-            // data.chars().for_each(|c| {
-            //     println!("THE C HERE IS {:#?}", c);
-            //     if c.is_digit(RADIX) {
-            //         let v = c.to_digit(RADIX).unwrap() as i32;
-            //         let node = TreeNode::new(v);
-            //         store.push(Some(Rc::new(RefCell::new(node))));
-            //     }
-            //     if c.to_string() == "_" {
-            //         store.push(None);
-            //     }
-            // });
-
             let formatted_data: Vec<&str> = data.split(",").collect();
 
             formatted_data.iter().for_each(|c| {
-                // if c.is_digit(RADIX) {
-                //     let v = c.to_digit(RADIX).unwrap() as i32;
-                //     let node = TreeNode::new(v);
-                //     store.push(Some(Rc::new(RefCell::new(node))));
-                // }
-                // if c.to_string() == "_" {
-                //     store.push(None);
-                // }
                 if *c != "_" {
                     let v = match c.parse::<i32>() {
                         Ok(the_v) => the_v,
@@ -123,9 +101,6 @@ impl Codec {
 
             let mut curr: TreeNodeType = None;
             let mut curr_index = 1;
-
-            // println!("the store first {:#?}", store);
-            println!("store length {:#?}", store.len());
 
             // construct the binary tree
             for index in 0..store.len() {
@@ -165,6 +140,9 @@ impl Codec {
 
         return root;
     }
+
+
+
 }
 
 // /**
@@ -186,9 +164,71 @@ mod serialize_deserialize_tests {
 
         let root = codec.deserialize(vec);
 
-        println!("the ov {:#?}", root);
-
         match root {
+            Some(the_root) => {
+                assert_eq!(the_root.as_ref().borrow().val, 4);
+                assert!(the_root.as_ref().borrow().left.is_some());
+
+                // FIRST BREADTH
+
+                match the_root.as_ref().borrow().left.as_ref() {
+                    Some(first_left) => {
+                        assert_eq!(first_left.as_ref().borrow().val, -7);
+                        assert!(first_left.as_ref().borrow().left.is_none());
+                        assert!(first_left.as_ref().borrow().right.is_none());
+                    }
+                    None => {}
+                }
+
+                match the_root.as_ref().borrow().right.as_ref() {
+                    Some(first_right) => {
+                        assert_eq!(first_right.as_ref().borrow().val, -3);
+                        assert!(first_right.as_ref().borrow().left.is_some());
+                        assert!(first_right.as_ref().borrow().right.is_some());
+
+                        // SECOND BREADTH
+
+                        match first_right.as_ref().borrow().left.as_ref() {
+                            Some(next_left) => {
+                                assert_eq!(next_left.as_ref().borrow().val, -9);
+                                assert!(next_left.as_ref().borrow().left.is_some());
+                                assert!(next_left.as_ref().borrow().right.is_some());
+                            }
+                            None => {}
+                        }
+
+                        match first_right.as_ref().borrow().right.as_ref() {
+                            Some(next_right) => {
+                                assert_eq!(next_right.as_ref().borrow().val, -3);
+                                assert!(next_right.as_ref().borrow().left.is_some());
+                                assert!(next_right.as_ref().borrow().right.is_none());
+                            }
+                            None => {}
+                        }
+                    }
+                    None => {}
+                }
+            }
+            None => {}
+        }
+    }
+
+    #[test]
+    fn test_serialize() {
+        let vec =
+            "4,-7,-3,_,_,-9,-3,9,-7,-4,_,6,_,-6,-6,_,_,0,6,5,_,9,_,_,-1,-4,_,_,_,-2".to_owned();
+
+        let codec = Codec::new();
+
+        let root = codec.deserialize(vec);
+
+        let v = codec.serialize(root);
+
+        println!("v>>>>>> {:#?}", v);
+
+        let new_root = codec.deserialize(v);
+
+        match new_root {
             Some(the_root) => {
                 assert_eq!(the_root.as_ref().borrow().val, 4);
                 assert!(the_root.as_ref().borrow().left.is_some());
