@@ -5,3 +5,4 @@ pub fn talk_to_me() {
 }
 
 pub mod linked_lists;
+pub mod queues_stacks;
