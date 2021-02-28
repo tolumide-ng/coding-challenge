@@ -1,22 +1,26 @@
 #[derive(Debug)]
-struct MyCircularQueue {
+pub struct MyCircularQueue {
     queue: Vec<i32>,
     head: Option<usize>,
     tail: Option<usize>,
     capacity: usize,
+    pub sum: i32,
+    pub count: usize,
 }
 
 impl MyCircularQueue {
-    fn new(k: i32) -> Self {
+    pub fn new(k: i32) -> Self {
         MyCircularQueue {
             queue: vec![-1; k as usize],
             head: None,
             tail: None,
             capacity: k as usize,
+            sum: 0,
+            count: 0,
         }
     }
 
-    fn en_queue(&mut self, value: i32) -> bool {
+    pub fn en_queue(&mut self, value: i32) -> bool {
         if self.is_full() {
             return false;
         }
@@ -43,7 +47,7 @@ impl MyCircularQueue {
         return true;
     }
 
-    fn de_queue(&mut self) -> bool {
+    pub fn de_queue(&mut self) -> bool {
         if self.head.is_some() && self.tail.is_some() {
             let head = self.head.unwrap();
             let tail = self.tail.unwrap();
@@ -64,7 +68,7 @@ impl MyCircularQueue {
         return false;
     }
 
-    fn front(&self) -> i32 {
+    pub fn front(&self) -> i32 {
         if self.head.is_some() {
             let head = self.head.unwrap();
             return match self.queue.get(head) {
@@ -94,7 +98,7 @@ impl MyCircularQueue {
         return false;
     }
 
-    fn is_full(&self) -> bool {
+    pub fn is_full(&self) -> bool {
         return !self.queue.contains(&-1);
     }
 }
