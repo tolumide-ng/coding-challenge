@@ -1,7 +1,3 @@
-// you can't have a linked cycle in the rust implenetation without the rust compiler shouting in the first place
-// but for the sake of writing this down
-use std::rc::Rc;
-
 #[derive(Default)]
 struct Node {
     val: i32,
