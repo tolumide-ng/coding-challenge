@@ -14,3 +14,6 @@ PS: There may be sp
 | 6   | [Sherlock and the Valid string](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/sherlock_and_the_valid_string.rs) |
 | 7   | [Town Sunset](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/sunset.rs)                                          |
 | 8   | [Two Sums](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/two_sums.rs)                                           |
+| 9   | [Walls and Gates](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/walls_and_gates.rs)                    | 0(n\*m)         |
+| 10  | [Circular Queue](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/circular_queue.rs)                      |
+| 11  | [Moving Data Stream](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/moving_data_stream.rs)              |
