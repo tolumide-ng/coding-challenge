@@ -1,12 +1,12 @@
 ## Coding Challenge
 
-## LeetCode/Hackerrank e.t.c
+### LeetCode/Hackerrank e.t.c
 
 PS: There may be sp
 
-| #   | Title                                                                                                                                                |
-| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | [Reverse Bits](https://github.com/tolumide-ng/coding-challenge)                                                                                      |
+| #   | Title                                                                                                                                                | Time Complexity | Space Complexity |
+| --- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ---------------- |
+| 1   | [Reverse Bits](https://github.com/tolumide-ng/coding-challenge)                                                                                      | 0(n)            | 0(n)             |
 | 2   | [Binary tree from inorder, postorder](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/bt_from_list.rs)            |
 | 3   | [Binary tree from preorder, inorder](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/bt_from_preorder_inorder.rs) |
 | 4   | [Lowest Common Ancestor](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/lowest_common_ancestor.rs)               |
