@@ -21,7 +21,7 @@ impl WallsAndGates {
             for r in 0..row_len {
                 let current = self.grid[c][r];
                 if current == 0 {
-                    self.queue.push_front((c, r));
+                    self.queue.push_back((c, r));
                 }
             }
         }

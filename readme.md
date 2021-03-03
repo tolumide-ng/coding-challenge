@@ -39,3 +39,4 @@ Using this as an opportunity to improve my skills in rust lang
 | 31  | [Number of Islands](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/number_of_islands_dfs.rs)                             | O(nm)                                | O(log m)         |
 | 32  | [Walls and Gates - dfs](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/walls_and_gates_dfs.rs)                           | O(nm)                                | O(log m)         |
 | 33  | [Chief Hopper](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/chief_hopper.rs)                                                    | 0(n) where n is the highest building | 0(1)             |
+| 34  | [Open the Lock - bfs](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/open_the_lock.rs)                                   |
