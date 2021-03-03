@@ -36,6 +36,6 @@ Using this as an opportunity to improve my skills in rust lang
 | 28  | [Linked List - Remove Linked elem](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/linked_lists/remove_linked_elements.rs)              |
 | 29  | [Linked List - Remove nth node from the last](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/linked_lists/remove_nth_node_from_end.rs) |
 | 30  | [Reverse Linked List](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/linked_lists/reversed_linked_lists.rs)                            |
-| 31  | [Number of Islands](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/number_of_islands_dfs.rs)                             | O(nm)                                | O(1)             |
-| 32  | [Walls and Gates - dfs](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/walls_and_gates_dfs.rs)                           | O(nm)                                | O(1)             |
+| 31  | [Number of Islands](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/number_of_islands_dfs.rs)                             | O(nm)                                | O(log m)         |
+| 32  | [Walls and Gates - dfs](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/walls_and_gates_dfs.rs)                           | O(nm)                                | O(log m)         |
 | 33  | [Chief Hopper](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/chief_hopper.rs)                                                    | 0(n) where n is the highest building | 0(1)             |
