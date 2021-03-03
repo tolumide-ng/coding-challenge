@@ -4,9 +4,9 @@
 
 Using this as an opportunity to improve my skills in rust lang
 
-| #   | Title                                                                                                                                                                 | Time Complexity                       | Space Complexity |
-| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- | ---------------- |
-| 1   | [Reverse Bits](https://github.com/tolumide-ng/coding-challenge)                                                                                                       | O(n)                                  | O(n)             |
+| #   | Title                                                                                                                                                                 | Time Complexity                      | Space Complexity |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ | ---------------- |
+| 1   | [Reverse Bits](https://github.com/tolumide-ng/coding-challenge)                                                                                                       | O(n)                                 | O(n)             |
 | 2   | [Binary tree from inorder, postorder](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/bt_from_list.rs)                             |
 | 3   | [Binary tree from preorder, inorder](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/bt_from_preorder_inorder.rs)                  |
 | 4   | [Lowest Common Ancestor](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/lowest_common_ancestor.rs)                                |
@@ -14,7 +14,7 @@ Using this as an opportunity to improve my skills in rust lang
 | 6   | [Sherlock and the Valid string](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/sherlock_and_the_valid_string.rs)                  |
 | 7   | [Town Sunset](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/sunset.rs)                                                           |
 | 8   | [Two Sums](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/two_sums.rs)                                                            |
-| 9   | [Walls and Gates](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/walls_and_gates.rs)                                     | O(n\*m)                               |
+| 9   | [Walls and Gates](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/walls_and_gates.rs)                                     | O(n\*m)                              |
 | 10  | [Circular Queue](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/circular_queue.rs)                                       |
 | 11  | [Moving Data Stream](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/moving_data_stream.rs)                               |
 | 12  | [Inorder traversal](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/binary_tree/in_order_traversal.rs)                                  |
@@ -36,6 +36,6 @@ Using this as an opportunity to improve my skills in rust lang
 | 28  | [Linked List - Remove Linked elem](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/linked_lists/remove_linked_elements.rs)              |
 | 29  | [Linked List - Remove nth node from the last](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/linked_lists/remove_nth_node_from_end.rs) |
 | 30  | [Reverse Linked List](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/linked_lists/reversed_linked_lists.rs)                            |
-| 31  | [Number of Islands](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/number_of_islands_dfs.rs)                             | O(nm)                                 | O(1)             |
-| 32  | [Walls and Gates - dfs](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/walls_and_gates_dfs.rs)                           | O(nm)                                 | O(1)             |
-| 33  | [Chief Hopper]()                                                                                                                                                      | 0(n) where n is the heighest building | 0(1)             |
+| 31  | [Number of Islands](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/number_of_islands_dfs.rs)                             | O(nm)                                | O(1)             |
+| 32  | [Walls and Gates - dfs](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/walls_and_gates_dfs.rs)                           | O(nm)                                | O(1)             |
+| 33  | [Chief Hopper](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/chief_hopper.rs)                                                    | 0(n) where n is the highest building | 0(1)             |

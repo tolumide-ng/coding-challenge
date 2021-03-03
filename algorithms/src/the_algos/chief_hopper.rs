@@ -4,7 +4,7 @@ pub fn get_energy(buildings: Vec<i32>) -> i32 {
     let mut bot_energy = 0;
     if buildings.len() > 0 {
         // use the first building as tbe lowest energy to start with
-        bot_energy = 1;
+        // bot_energy = 1;
 
         let mut current_energy = bot_energy;
 
