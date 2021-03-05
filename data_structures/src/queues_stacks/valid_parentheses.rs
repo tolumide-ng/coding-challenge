@@ -29,8 +29,6 @@ pub fn is_valid(s: String) -> bool {
                         continue;
                     }
 
-                    println!("the stack now>>>>>> {:#?}", stack);
-
                     return false;
                 }
             }
