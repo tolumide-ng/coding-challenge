@@ -40,8 +40,9 @@ Using this as an opportunity to improve my skills in rust lang
 | 32  | [Walls and Gates - dfs](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/walls_and_gates_dfs.rs)                           | O(nm)                                | O(log m)         |
 | 33  | [Chief Hopper](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/chief_hopper.rs)                                                    | 0(n) where n is the highest building | 0(1)             |
 | 34  | [Open the Lock - bfs](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/open_the_lock.rs)                                   |
-| 35  | [Perfect Squares](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/perfect_squares.rs)                                              | 0(h) height of the tree              | 0(n)             |
-| 36  | [Min Stack](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/min_stack.rs)                                                          |
-| 37  | [Valid Parenthes](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/valid_parentheses.rs)                                            |
-| 38  | [Daily Temperatures](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/daily_temperatures.rs.rs)                                     |
-| 39  | [Reverse Notation](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/reverse_polish_notation.rs)                                     |
+| 35  | [Perfect Squares](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/perfect_squares.rs)                                     | 0(h) height of the tree              | 0(n)             |
+| 36  | [Min Stack](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/min_stack.rs)                                                 |
+| 37  | [Valid Parenthes](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/valid_parentheses.rs)                                   |
+| 38  | [Daily Temperatures](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/daily_temperatures.rs)                               |
+| 39  | [Reverse Polish Notation](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/reverse_polish_notation.rs)                     |
+| 40  | [Max Min](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/max_min.rs)                                                              | 0(nm)                                | 0(1)             |
