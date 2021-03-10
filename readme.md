@@ -46,5 +46,6 @@ Using this as an opportunity to improve my skills in rust lang
 | 38  | [Daily Temperatures](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/daily_temperatures.rs)                               |
 | 39  | [Reverse Polish Notation](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/reverse_polish_notation.rs)                     |
 | 40  | [Max Min](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/max_min.rs)                                                              | 0(nm)                                | 0(1)             |
-| 42  | [Number of Islands](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/number_of_islands_bfs.rs)                             |
-
+| 41  | [Number of Islands](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/number_of_islands_bfs.rs)                             |
+| 42  | [Jim and the Others](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/jim_and_the_others.rs)                                        |
+| 43  | [Clone Graph](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/clone_graph.rs)                                             |

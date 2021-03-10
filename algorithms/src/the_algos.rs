@@ -9,3 +9,4 @@ pub mod sherlock_and_the_valid_string;
 pub mod sunset;
 pub mod test_wrapper;
 pub mod two_sums;
+pub mod jim_and_the_others;
