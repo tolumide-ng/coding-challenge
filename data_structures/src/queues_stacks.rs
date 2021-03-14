@@ -1,4 +1,5 @@
 pub mod circular_queue;
+pub mod clone_graph;
 pub mod daily_temperatures;
 pub mod min_stack;
 pub mod moving_data_stream;
@@ -7,8 +8,8 @@ pub mod number_of_islands_dfs;
 pub mod open_the_lock;
 pub mod perfect_squares;
 pub mod reverse_polish_notation;
+pub mod target_sum;
 pub mod test_wrapper;
 pub mod valid_parentheses;
 pub mod walls_and_gates;
 pub mod walls_and_gates_dfs;
-pub mod clone_graph;
