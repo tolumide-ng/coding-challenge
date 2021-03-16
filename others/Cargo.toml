@@ -1,5 +1,5 @@
 [package]
-name = "algorithms"
+name = "others"
 version = "0.1.0"
 authors = ["tolumide-ng <tolumideshopein@gmail.com>"]
 edition = "2018"

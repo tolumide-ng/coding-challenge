@@ -3,5 +3,5 @@
 members=[
     "dynamic_pg",
     "data_structures",
-    "algorithms",
+    "others",
 ]

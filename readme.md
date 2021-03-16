@@ -7,13 +7,13 @@ Using this as an opportunity to improve my skills in rust lang
 | #   | Title                                                                                                                                                                 |
 | --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1   | [Reverse Bits](https://github.com/tolumide-ng/coding-challenge)                                                                                                       |
-| 2   | [Binary tree from inorder, postorder](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/bt_from_list.rs)                             |
-| 3   | [Binary tree from preorder, inorder](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/bt_from_preorder_inorder.rs)                  |
-| 4   | [Lowest Common Ancestor](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/lowest_common_ancestor.rs)                                |
-| 5   | [Next Pointer (javascript)](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/next_right_pointers.js)                                |
-| 6   | [Sherlock and the Valid string](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/sherlock_and_the_valid_string.rs)                  |
-| 7   | [Town Sunset](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/sunset.rs)                                                           |
-| 8   | [Two Sums](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/two_sums.rs)                                                            |
+| 2   | [Binary tree from inorder, postorder](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/bt_from_list.rs)                             |
+| 3   | [Binary tree from preorder, inorder](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/bt_from_preorder_inorder.rs)                  |
+| 4   | [Lowest Common Ancestor](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/lowest_common_ancestor.rs)                                |
+| 5   | [Next Pointer (javascript)](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/next_right_pointers.js)                                |
+| 6   | [Sherlock and the Valid string](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/sherlock_and_the_valid_string.rs)                  |
+| 7   | [Town Sunset](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/sunset.rs)                                                           |
+| 8   | [Two Sums](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/two_sums.rs)                                                            |
 | 9   | [Walls and Gates](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/walls_and_gates.rs)                                     |
 | 10  | [Circular Queue](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/circular_queue.rs)                                       |
 | 11  | [Moving Data Stream](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/moving_data_stream.rs)                               |
@@ -38,15 +38,15 @@ Using this as an opportunity to improve my skills in rust lang
 | 30  | [Reverse Linked List](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/linked_lists/reversed_linked_lists.rs)                            |
 | 31  | [Number of Islands](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/number_of_islands_dfs.rs)                             |
 | 32  | [Walls and Gates - dfs](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/walls_and_gates_dfs.rs)                           |
-| 33  | [Chief Hopper](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/chief_hopper.rs)                                                    |
+| 33  | [Chief Hopper](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/chief_hopper.rs)                                                    |
 | 34  | [Open the Lock - bfs](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/open_the_lock.rs)                                   |
 | 35  | [Perfect Squares](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/perfect_squares.rs)                                     |
 | 36  | [Min Stack](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/min_stack.rs)                                                 |
 | 37  | [Valid Parenthes](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/valid_parentheses.rs)                                   |
 | 38  | [Daily Temperatures](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/daily_temperatures.rs)                               |
 | 39  | [Reverse Polish Notation](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/reverse_polish_notation.rs)                     |
-| 40  | [Max Min](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/max_min.rs)                                                              |
+| 40  | [Max Min](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/max_min.rs)                                                              |
 | 41  | [Number of Islands](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/number_of_islands_bfs.rs)                             |
-| 42  | [Jim and the Others](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/jim_and_the_others.rs)                                        |
+| 42  | [Jim and the Others](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/jim_and_the_others.rs)                                        |
 | 43  | [Clone Graph](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/clone_graph.rs)                                             |
-| 44  | [Game Of Thrones 1](https://github.com/tolumide-ng/coding-challenge/blob/main/algorithms/src/the_algos/game_of_thrones_1.rs)                                          |
+| 44  | [Game Of Thrones 1](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/game_of_thrones_1.rs)                                          |
