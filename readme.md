@@ -50,3 +50,4 @@ Using this as an opportunity to improve my skills in rust lang
 | 42  | [Jim and the Others](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/jim_and_the_others.rs)                                        |
 | 43  | [Clone Graph](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/clone_graph.rs)                                             |
 | 44  | [Game Of Thrones 1](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/game_of_thrones_1.rs)                                          |
+| 45  | [Grredy Florist](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/greedy_florist.rs)                                          |
