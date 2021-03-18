@@ -16,3 +16,33 @@ function getTargetSum(target, numbers) {
 
     return count;
 }
+
+function getMemoizedTargetSum(target, numbers) {
+    let memo = {};
+
+    function getTotal(sum, index) {
+        if (memo[`${sum}-${index}`]) {
+            return memo[`${sum}-${index}`];
+        }
+
+        if (index === numbers.length) {
+            if (sum === target) {
+                return 1;
+            }
+
+            if (sum !== target) {
+                return 0;
+            }
+        }
+
+        let result =
+            getTotal(sum + sum[index], index + 1) +
+            getTotal(sum - sum[index], index + 1);
+
+        memo[`${sum}-${index}`] = result;
+
+        return result;
+    }
+
+    return getTotal(0, 0);
+}
