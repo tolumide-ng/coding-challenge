@@ -1,3 +1,5 @@
+const { expect } = require("chai");
+
 class InorderTraversal {
     #output = [];
     #stack = [];
@@ -10,7 +12,8 @@ class InorderTraversal {
         this.#output = [];
         this.#stack = [];
 
-        this.#recursiveTraversal(this.root);
+        this.recursiveTraversal(this.root);
+
         return this.#output;
     }
 
@@ -18,11 +21,11 @@ class InorderTraversal {
         this.#output = [];
         this.#stack = [];
 
-        this.#iterativetraversal(root);
+        this.iterativetraversal(root);
         return this.#output;
     }
 
-    #recursiveTraversal(root) {
+    recursiveTraversal(root) {
         if (root !== null) {
             if (root?.left !== null) {
                 this.recursiveTraversal(root.left);
@@ -36,18 +39,31 @@ class InorderTraversal {
         }
     }
 
-    #iterativeTraversal(root) {
+    iterativeTraversal(root) {
         let current = root;
 
         while (current !== null && this.#stack.length > 0) {
             while (current !== null) {
                 this.#stack.push(current);
-                current = current.left;
+                current = current?.left ?? null;
             }
 
             let value = stack.pop();
             this.#output.push(value);
-            current = value.right;
+            current = value?.right ?? null;
         }
     }
 }
+
+describe("Inorder Traversal", () => {
+    it("it should get inorder traversal using recursive method", (done) => {
+        const tree = {
+            value: 1,
+            left: null,
+            right: 2,
+        };
+
+        let traversal = new InorderTraversal(tree);
+        expect(traversal.useRecursion, [1, 2]);
+    });
+});

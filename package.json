@@ -1,0 +1,25 @@
+{
+  "name": "algos",
+  "version": "1.0.0",
+  "description": "### LeetCode/Hackerrank e.t.c",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha data_structures/**/*.js --timeout 1000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tolumide-ng/coding-challenge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tolumide-ng/coding-challenge/issues"
+  },
+  "homepage": "https://github.com/tolumide-ng/coding-challenge#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^8.3.2"
+  }
+}
