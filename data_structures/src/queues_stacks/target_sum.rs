@@ -21,8 +21,6 @@ mod target_sum {
 
         new_brute.get_total(0, 0);
 
-        println!("what to return !!!!!!!!!!! {:#?}", new_brute.count);
-
         return new_brute.count;
 
         // return self.count;
@@ -31,7 +29,6 @@ mod target_sum {
     impl TargetSum {
         fn get_total(&mut self, sum: i8, index: usize) {
             if index >= self.numbers.len() {
-                // println!("HERE WITH {:#?}", sum);
                 return;
             }
 
@@ -93,6 +90,32 @@ mod target_sum {
             return ans;
         }
     }
+
+    pub fn get_target_sum(target: i32, numbers: Vec<i32>) -> i32 {
+        let sum: i32 = numbers.iter().sum();
+
+        if target > sum || ((sum + target) % 2) != 0 {
+            return 0;
+        }
+
+        let new_target: i32 = (target + sum) / 2;
+
+        let mut dp: Vec<i32> = vec![0; new_target as usize + 1];
+
+        dp[0] = 1;
+
+        for number in numbers {
+            for j in ((number)..=new_target).rev() {
+                let index = (j - number);
+
+                if index >= 0 {
+                    dp[j as usize] = dp[j as usize] + dp.get(index as usize).unwrap();
+                }
+            }
+        }
+
+        return dp[new_target as usize];
+    }
 }
 
 #[cfg(test)]
@@ -107,7 +130,13 @@ mod test_target_sum_cont {
 
     #[test]
     fn test_memoized_target_sum() {
-        // assert_eq!(target_sum::memoized(3, vec![1, 1, 1, 1, 1]), 5);
+        assert_eq!(target_sum::memoized(3, vec![1, 1, 1, 1, 1]), 5);
         assert_eq!(target_sum::memoized(1, vec![0, 1]), 2);
+    }
+
+    #[test]
+    fn test_dynamic_target_sum() {
+        assert_eq!(target_sum::get_target_sum(3, vec![1, 1, 1, 1, 1]), 5);
+        assert_eq!(target_sum::get_target_sum(1, vec![0, 1]), 2);
     }
 }
