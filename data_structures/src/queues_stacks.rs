@@ -1,6 +1,7 @@
 pub mod circular_queue;
 pub mod clone_graph;
 pub mod daily_temperatures;
+pub mod inorder_traversal;
 pub mod min_stack;
 pub mod moving_data_stream;
 pub mod number_of_islands_bfs;
