@@ -8,6 +8,8 @@ pub struct TreeNode {
 }
 
 mod inorder_traversal {
+    use std::borrow::Borrow;
+
     use super::*;
 
     #[derive(Debug)]
@@ -33,7 +35,6 @@ mod inorder_traversal {
             match root.as_ref() {
                 Some(the_root) => match the_root.borrow().right.as_ref() {
                     Some(the_right) => {
-                        self.output.push(the_root.borrow().val);
                         self.get_recursive_traversal(Some(Rc::clone(the_right)));
                     }
                     None => {}
@@ -44,7 +45,7 @@ mod inorder_traversal {
 
         fn get_recursive_traversal_method_2(&mut self, root: Option<Rc<RefCell<TreeNode>>>) {
             if root.as_ref().is_some() {
-                if root.as_ref().unwrap().borrow().left.is_some() {
+                if root.as_ref().unwrap().left.is_some() {
                     self.get_recursive_traversal_method_2(Some(Rc::clone(
                         root.as_ref()
                             .unwrap()

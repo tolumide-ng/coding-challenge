@@ -8,6 +8,7 @@ pub mod number_of_islands_bfs;
 pub mod number_of_islands_dfs;
 pub mod open_the_lock;
 pub mod perfect_squares;
+pub mod queue_with_stack;
 pub mod reverse_polish_notation;
 pub mod target_sum;
 pub mod test_wrapper;
