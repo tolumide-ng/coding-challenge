@@ -10,7 +10,7 @@ class InorderTraversal {
         this.#output = [];
         this.#stack = [];
 
-        this.#recursiveTraversal(this.root);
+        this.recursiveTraversal(this.root);
         return this.#output;
     }
 
@@ -22,7 +22,7 @@ class InorderTraversal {
         return this.#output;
     }
 
-    #recursiveTraversal(root) {
+    recursiveTraversal(root) {
         if (root !== null) {
             if (root?.left !== null) {
                 this.recursiveTraversal(root.left);
@@ -36,7 +36,7 @@ class InorderTraversal {
         }
     }
 
-    #iterativeTraversal(root) {
+    iterativeTraversal(root) {
         let current = root;
 
         while (current !== null && this.#stack.length > 0) {
