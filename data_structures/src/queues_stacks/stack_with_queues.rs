@@ -1,5 +1,4 @@
-// #![allow(warnings, unused)]
-#![allow(dead_code, unused_imports)]
+#![allow(warnings, unused)]
 
 use std::cell::RefCell;
 use std::collections::VecDeque;
@@ -80,4 +79,5 @@ mod test {
         assert_eq!(v.top(), 10);
         assert_eq!(v.pop(), 10);
         assert!(!v.empty());
-git 
+    }
+}
