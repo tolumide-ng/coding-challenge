@@ -5,7 +5,7 @@
 Using this as an opportunity to improve my skills in rust lang
 
 | #   | Title                                                                                                                                                                 | JS | Rust |
-| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |-----|-----|
 | 1   | [Reverse Bits](https://github.com/tolumide-ng/coding-challenge)                                                                                                       |
 | 2   | [Binary tree from inorder, postorder](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/bt_from_list.rs)                             |
 | 3   | [Binary tree from preorder, inorder](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/bt_from_preorder_inorder.rs)                  |
@@ -51,6 +51,6 @@ Using this as an opportunity to improve my skills in rust lang
 | 43  | [Clone Graph](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/clone_graph.rs)                                             |
 | 44  | [Game Of Thrones 1](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/game_of_thrones_1.rs)                                          |
 | 45  | [Grredy Florist](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/greedy_florist.js)                                          |
-| 46  | [Queue with Stack](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/queue_with_stack.rs)                                             |[Clone Graph](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/queue_with_stack.js)    | [Clone Graph](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/queue_with_stack.rs)   
+| 46  | [Queue with Stack](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/queue_with_stack.rs)                                             |[Queue with Stack](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/queue_with_stack.js)    | [Queue with Stack](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/queue_with_stack.rs)   
 | 47  | [Stack with Queues](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/stack_with_queues.rs)                                             |
 | 48  | [Decode String](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/decode_string.rs)                                             |
