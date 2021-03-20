@@ -10,6 +10,7 @@ pub mod open_the_lock;
 pub mod perfect_squares;
 pub mod queue_with_stack;
 pub mod reverse_polish_notation;
+pub mod stack_with_queues;
 pub mod target_sum;
 pub mod test_wrapper;
 pub mod valid_parentheses;
