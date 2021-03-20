@@ -2,7 +2,7 @@
 
 ### LeetCode/Hackerrank e.t.c
 
-Using this as an opportunity to improve my skills in rust lang
+Using this as an opportunity to improve my knowledge of rust lang
 
 | #   | Title                                                                                                                                                                 | JS | Rust |
 | --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |-----|-----|
@@ -38,7 +38,7 @@ Using this as an opportunity to improve my skills in rust lang
 | 30  | [Reverse Linked List](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/linked_lists/reversed_linked_lists.rs)                            |
 | 31  | [Number of Islands](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/number_of_islands_dfs.rs)                             |
 | 32  | [Walls and Gates - dfs](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/walls_and_gates_dfs.rs)                           |
-| 33  | [Chief Hopper](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/chief_hopper.rs)                                                    |
+| 33  | [Chief Hopper](https://www.hackerrank.com/challenges/chief-hopper/problem?utm_campaign=challenge-recommendation&utm_medium=email&utm_source=24-hour-campaign)                                                    |[Chief Hopper](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/chief_hopper.js) | [Chief Hopper](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/chief_hopper.rs) |
 | 34  | [Open the Lock - bfs](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/open_the_lock.rs)                                   |
 | 35  | [Perfect Squares](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/perfect_squares.rs)                                     |
 | 36  | [Min Stack](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/min_stack.rs)                                                 |
@@ -47,10 +47,10 @@ Using this as an opportunity to improve my skills in rust lang
 | 39  | [Reverse Polish Notation](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/reverse_polish_notation.rs)                     |
 | 40  | [Max Min](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/max_min.rs)                                                              |
 | 41  | [Number of Islands](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/number_of_islands_bfs.rs)                             |
-| 42  | [Jim and the Others](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/jim_and_the_others.rs)                                        |
+| 42  | [Jim and the Others](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/jim_and_the_others.rs)                                        |[Jim and Others](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/jim_and_orders.js) |  [Jim and the Others](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/jim_and_the_others.rs) |
 | 43  | [Clone Graph](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/clone_graph.rs)                                             |
 | 44  | [Game Of Thrones 1](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/game_of_thrones_1.rs)                                          |
-| 45  | [Grredy Florist](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/greedy_florist.js)                                          |
+| 45  | [Grredy Florist](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/greedy_florist.js)                                          |[Greedy Florist](https://github.com/tolumide-ng/coding-challenge/blob/main/others/src/the_algos/greedy_florist.js)| |
 | 46  | [Queue with Stack](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/queue_with_stack.rs)                                             |[Queue with Stack](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/queue_with_stack.js)    | [Queue with Stack](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/queue_with_stack.rs)   
 | 47  | [Stack with Queues](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/stack_with_queues.rs)                                             |
 | 48  | [Decode String](https://github.com/tolumide-ng/coding-challenge/blob/main/data_structures/src/queues_stacks/decode_string.rs)                                             |
