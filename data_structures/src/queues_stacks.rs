@@ -1,7 +1,11 @@
 pub mod circular_queue;
 pub mod clone_graph;
 pub mod daily_temperatures;
+pub mod decode_string;
+pub mod flood_fill;
 pub mod inorder_traversal;
+pub mod keys_and_rooms;
+pub mod matrix_01;
 pub mod min_stack;
 pub mod moving_data_stream;
 pub mod number_of_islands_bfs;
@@ -16,6 +20,3 @@ pub mod test_wrapper;
 pub mod valid_parentheses;
 pub mod walls_and_gates;
 pub mod walls_and_gates_dfs;
-pub mod  decode_string;
-pub mod  flood_fill;
-pub mod matrix_01;
