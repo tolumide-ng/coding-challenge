@@ -4,6 +4,13 @@
 
 Using this as an opportunity to improve my knowledge of rust lang
 
+### Please Note
+
+`
+\*If the rust and js cell of a row in empty, it means the solution in present on the cell col of that specific row. This is owing to changes in how this table used to be. Updates would be made later to ensure consistency
+
+`
+
 | #   | Title                                                                                                                                                                 | JS                                                                                                                                  | Rust                                                                                                                                |
 | --- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | 1   | [Reverse Bits](https://github.com/tolumide-ng/coding-challenge)                                                                                                       |
