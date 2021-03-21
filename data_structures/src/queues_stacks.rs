@@ -18,3 +18,4 @@ pub mod walls_and_gates;
 pub mod walls_and_gates_dfs;
 pub mod  decode_string;
 pub mod  flood_fill;
+pub mod matrix_01;
