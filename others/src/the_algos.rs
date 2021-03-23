@@ -12,4 +12,5 @@ pub mod reverse_bits;
 pub mod sherlock_and_the_valid_string;
 pub mod sunset;
 pub mod test_wrapper;
+pub mod two_strings;
 pub mod two_sums;
