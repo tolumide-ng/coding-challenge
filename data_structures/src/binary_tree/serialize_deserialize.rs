@@ -6,7 +6,7 @@ pub struct TreeNode {
     pub right: Option<Rc<RefCell<TreeNode>>>,
 }
 
-type TreeNodeType = Option<Rc<RefCell<TreeNode>>>;
+pub type TreeNodeType = Option<Rc<RefCell<TreeNode>>>;
 
 impl TreeNode {
     #[inline]
@@ -21,7 +21,7 @@ impl TreeNode {
 use std::cell::RefCell;
 use std::rc::Rc;
 
-struct Codec {}
+pub struct Codec {}
 
 /**
  * `&self` means the method takes an immutable reference.
@@ -29,11 +29,11 @@ struct Codec {}
  */
 
 impl Codec {
-    fn new() -> Self {
+    pub fn new() -> Self {
         return Codec {};
     }
 
-    fn serialize(&self, root: TreeNodeType) -> String {
+    pub fn serialize(&self, root: TreeNodeType) -> String {
         let mut serialized = String::from("");
 
         if root.is_some() {
@@ -74,7 +74,7 @@ impl Codec {
         return serialized.to_string();
     }
 
-    fn deserialize(&self, data: String) -> TreeNodeType {
+    pub fn deserialize(&self, data: String) -> TreeNodeType {
         // let mut the_chars = data.chars();
         let mut store = vec![];
 
@@ -100,6 +100,7 @@ impl Codec {
             });
 
             let mut curr: TreeNodeType = None;
+            println!("{:#?}", curr);
             let mut curr_index = 1;
 
             // construct the binary tree
@@ -140,9 +141,6 @@ impl Codec {
 
         return root;
     }
-
-
-
 }
 
 // /**
@@ -153,7 +151,7 @@ impl Codec {
 //  */
 #[cfg(test)]
 mod serialize_deserialize_tests {
-    use super::*;
+    use super::Codec;
 
     #[test]
     fn test_deserialize() {

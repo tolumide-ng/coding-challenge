@@ -76,10 +76,9 @@ where
 }
 
 mod dtests {
-    use super::*;
-
     #[test]
     fn test_new_dnode_string() {
+        use super::DNode;
         let node = DNode::new("node_1".to_string());
 
         assert_eq!(node.as_ref().borrow().data, "node_1".to_string());
@@ -87,6 +86,8 @@ mod dtests {
 
     #[test]
     fn test_new_dnode_integer() {
+        use super::DNode;
+
         let node = DNode::new(1);
 
         assert_eq!(node.as_ref().borrow().data, 1);

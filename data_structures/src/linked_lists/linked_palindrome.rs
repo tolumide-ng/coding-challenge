@@ -8,7 +8,7 @@ impl LinkedList {
 
         if self.head.as_ref().is_some() && self.head.as_ref().unwrap().borrow().next.is_some() {
             let mut penultimate_ptr: NodeOption = None;
-            let mut original_list = Some(Rc::clone(self.head.as_ref().unwrap()));
+            let original_list = Some(Rc::clone(self.head.as_ref().unwrap()));
             let mut fast_ptr = Some(Rc::clone(self.head.as_ref().unwrap()));
             let mut slow_ptr = Some(Rc::clone(self.head.as_ref().unwrap()));
 

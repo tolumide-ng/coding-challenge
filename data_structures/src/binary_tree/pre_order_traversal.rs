@@ -1,4 +1,4 @@
-use crate::binary_tree::priority_queue::{BinaryHeap, Node, TheNode};
+use crate::binary_tree::priority_queue::BinaryHeap;
 
 use std::fmt::{Debug, Display};
 
@@ -6,7 +6,7 @@ impl<T> BinaryHeap<T>
 where
     T: PartialEq + Eq + Display + Debug + Copy + Clone,
 {
-    fn pre_order_traversal(&self) -> Vec<T> {
+    pub fn pre_order_traversal(&self) -> Vec<T> {
         let mut traversal: Vec<T> = vec![];
         let mut stack: Vec<usize> = vec![];
 
@@ -36,7 +36,7 @@ where
         traversal
     }
 
-    fn pre_order_recursive(&self, start: Option<usize>) -> Vec<T> {
+    pub fn pre_order_recursive(&self, start: Option<usize>) -> Vec<T> {
         let mut traversal: Vec<T> = vec![];
         if start.is_none() {
             return vec![];
@@ -75,10 +75,9 @@ where
 }
 
 mod test_preorder_traversal {
-    use super::*;
-
     #[test]
     fn iterative_preorder_test() {
+        use crate::binary_tree::priority_queue::{BinaryHeap, TheNode};
         let mut tree = BinaryHeap::new(10);
 
         tree.insert(TheNode {
@@ -118,6 +117,8 @@ mod test_preorder_traversal {
 
     #[test]
     fn recursive_preorder_test() {
+        use crate::binary_tree::priority_queue::{BinaryHeap, TheNode};
+
         let mut tree = BinaryHeap::new(10);
 
         tree.insert(TheNode {

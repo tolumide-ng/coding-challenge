@@ -1,4 +1,4 @@
-use crate::binary_tree::priority_queue::{BinaryHeap, Node, TheNode};
+use crate::binary_tree::priority_queue::BinaryHeap;
 
 use std::fmt::{Debug, Display};
 
@@ -6,7 +6,7 @@ impl<T> BinaryHeap<T>
 where
     T: PartialEq + Eq + Clone + Debug + Copy + Display,
 {
-    fn recusrive_post_order_traversal(&self, start: Option<usize>) -> Vec<T> {
+    pub fn recursive_post_order_traversal(&self, start: Option<usize>) -> Vec<T> {
         let mut traversal: Vec<T> = vec![];
 
         if self.heap.len() > 0 {
@@ -17,7 +17,7 @@ where
             let curr_index = start.unwrap();
             let left_index = self.get_left_child(curr_index);
 
-            let next_left = self.recusrive_post_order_traversal(left_index);
+            let next_left = self.recursive_post_order_traversal(left_index);
 
             for value in next_left {
                 traversal.push(value);
@@ -25,7 +25,7 @@ where
 
             // right node now
             let right_index = self.get_right_child(curr_index);
-            let next_right = self.recusrive_post_order_traversal(right_index);
+            let next_right = self.recursive_post_order_traversal(right_index);
 
             for value in next_right {
                 traversal.push(value);
@@ -42,7 +42,7 @@ where
 
 #[cfg(test)]
 mod test_post_order_traversal {
-    use super::*;
+    use crate::binary_tree::priority_queue::{BinaryHeap, TheNode};
 
     #[test]
     fn test_post_order_traversal() {
@@ -77,7 +77,7 @@ mod test_post_order_traversal {
             weight: 4,
         });
 
-        let trav = tree.recusrive_post_order_traversal(Some(0));
+        let trav = tree.recursive_post_order_traversal(Some(0));
 
         println!("THE REAL TREEE >>>>>>>>> {:#?}", tree);
 

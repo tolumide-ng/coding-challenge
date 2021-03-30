@@ -247,10 +247,11 @@ where
 }
 
 mod test_min_priority {
-    use super::*;
 
     #[test]
     fn min_priority_insertion() {
+        use super::{BinaryHeap, TheNode};
+
         let mut tree = BinaryHeap::new(10);
 
         assert_eq!(tree.total_length(), 0);
@@ -267,6 +268,8 @@ mod test_min_priority {
 
     #[test]
     fn min_priority_order() {
+        use super::{BinaryHeap, TheNode};
+
         let mut tree = BinaryHeap::new(10);
 
         assert_eq!(tree.total_length(), 0);
@@ -304,6 +307,8 @@ mod test_min_priority {
 
     #[test]
     fn order_after_removal() {
+        use super::{BinaryHeap, TheNode};
+
         let mut tree = BinaryHeap::new(10);
 
         tree.insert(TheNode {
@@ -341,6 +346,8 @@ mod test_min_priority {
 
     #[test]
     fn test_change_priority() {
+        use super::{BinaryHeap, TheNode};
+
         let mut tree = BinaryHeap::new(10);
 
         tree.insert(TheNode {

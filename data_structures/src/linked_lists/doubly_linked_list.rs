@@ -1,5 +1,4 @@
 use super::dnode::{DNode, DNodeOption, ListDNodeIterator};
-use std::cell::RefCell;
 use std::fmt::{Debug, Display};
 use std::rc::Rc;
 
@@ -49,7 +48,7 @@ where
 
     pub fn append_end(&mut self, data: T) {
         match &self.head {
-            Some(head) => {
+            Some(_head) => {
                 let new_tail = DNode::new(data);
 
                 match self.tail.take() {
@@ -264,10 +263,9 @@ where
 }
 
 mod test_doubly_linked_list {
-    use super::*;
-
     #[test]
     fn test_new_empty_dlist() {
+        use super::DLinkedList;
         let mut list = DLinkedList::new("node_1");
 
         assert_eq!(
@@ -285,6 +283,8 @@ mod test_doubly_linked_list {
 
     #[test]
     fn test_append_to_end() {
+        use super::DLinkedList;
+
         let mut list = DLinkedList::new("node_1");
 
         assert_eq!(
@@ -306,6 +306,8 @@ mod test_doubly_linked_list {
 
     #[test]
     fn test_pop_head_one_elem() {
+        use super::DLinkedList;
+
         let mut list = DLinkedList::new("node_1");
 
         assert_eq!(
@@ -321,6 +323,8 @@ mod test_doubly_linked_list {
 
     #[test]
     fn test_pop_head_multi_elem() {
+        use super::DLinkedList;
+
         // Pop from head a doubly-linked list that has multi elements
         let mut list = DLinkedList::new("node_1");
         list.append_end("node_2");
@@ -361,7 +365,10 @@ mod test_doubly_linked_list {
     }
 
     #[test]
+
     fn test_pop_end_single_elem() {
+        use super::DLinkedList;
+
         let mut list = DLinkedList::new("node_1");
         list.append_end("node_2");
         list.append_end("node_3");
@@ -399,6 +406,8 @@ mod test_doubly_linked_list {
 
     #[test]
     fn test_get_nth_element() {
+        use super::DLinkedList;
+
         let mut list = DLinkedList::new("node_1");
         list.append_end("node_2");
         list.append_end("node_3");
@@ -427,6 +436,8 @@ mod test_doubly_linked_list {
 
     #[test]
     fn insert_elemenet() {
+        use super::DLinkedList;
+
         let mut list = DLinkedList::new("node_1".to_string());
         list.append_end("node_2".to_string());
 
@@ -464,6 +475,8 @@ mod test_doubly_linked_list {
 
     #[test]
     fn test_delete_nth_element() {
+        use super::DLinkedList;
+
         let mut list = DLinkedList::new(1);
         list.append_end(2);
         list.append_end(3);

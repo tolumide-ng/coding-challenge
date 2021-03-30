@@ -4,18 +4,18 @@
 ///
 use std::rc::Rc;
 
-struct Node {
-    value: i32,
+pub struct Node {
+    // value: i32,
     next: Option<Rc<Node>>,
 }
 
-struct LinkedList {
+pub struct LinkedList {
     first_head: Option<Rc<Node>>,
     second_head: Option<Rc<Node>>,
 }
 
 impl LinkedList {
-    fn get_interception(&self) -> Option<Rc<Node>> {
+    pub fn get_interception(&self) -> Option<Rc<Node>> {
         let mut intercept: Option<Rc<Node>> = None;
 
         let mut vec_safe = vec![];
@@ -38,12 +38,18 @@ impl LinkedList {
             Some(ref head) => {
                 let curr = head;
                 while head.next.is_some() && !is_intercept {
-                    vec_safe.iter().map(|val| {
-                        if Rc::as_ptr(curr) == Rc::as_ptr(val) {
+                    // vec_safe.iter().map(|val| {
+                    //     if Rc::as_ptr(curr) == Rc::as_ptr(val) {
+                    //         is_intercept = true;
+                    //         intercept = Some(Rc::clone(curr));
+                    //     }
+                    // });
+                    for index in 0..vec_safe.len() {
+                        if Rc::as_ptr(curr) == Rc::as_ptr(&vec_safe[index]) {
                             is_intercept = true;
                             intercept = Some(Rc::clone(curr));
                         }
-                    });
+                    }
                 }
                 return intercept;
             }

@@ -70,7 +70,7 @@ impl MyLinkedList {
     }
 
     /// O(n)
-    fn add_at_index(&mut self, index: i32, val: i32) {
+    pub fn add_at_index(&mut self, index: i32, val: i32) {
         let mut dummy_head = Box::new(Node {
             val: 0,
             next: self.head.take(),
@@ -93,7 +93,7 @@ impl MyLinkedList {
     }
 
     /// O(n)
-    fn delete_at_index(&mut self, index: i32) {
+    pub fn delete_at_index(&mut self, index: i32) {
         let mut dummy_head = Box::new(Node {
             val: 0,
             next: self.head.take(),

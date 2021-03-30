@@ -2,7 +2,6 @@
 //
 
 use super::node::{ListNodeIterator, Node, NodeOption};
-use std::cell::RefCell;
 use std::rc::Rc;
 
 #[derive(PartialEq, Debug)]
@@ -125,11 +124,10 @@ impl LinkedList {
     }
 }
 
-mod test {
-    use super::*;
-
+mod test_linked_rcs_mod {
     #[test]
     fn test_new_empty_list() {
+        use super::LinkedList;
         let list = LinkedList::new_empty();
 
         assert_eq!(
@@ -144,6 +142,8 @@ mod test {
 
     #[test]
     fn test_new_list() {
+        use super::{LinkedList, Node};
+
         let list = LinkedList::new("node_1".to_string());
 
         assert_eq!(
@@ -151,13 +151,15 @@ mod test {
             LinkedList {
                 head: Some(Node::new("node_1".to_string())),
                 tail: None,
-                length: 0
+                length: 1
             }
         )
     }
 
     #[test]
     fn test_append_list() {
+        use super::LinkedList;
+
         // let mut list = LinkedList::new("node_1".to_string());
         let mut list = LinkedList::new_empty();
 

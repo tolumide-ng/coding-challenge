@@ -1,16 +1,16 @@
 #[derive(Default)]
-struct Node {
+pub struct Node {
     val: i32,
     next: Option<Box<Node>>,
 }
 
 #[derive(Default)]
-struct LinkedList {
+pub struct LinkedList {
     head: Option<Box<Node>>,
 }
 
 impl LinkedList {
-    fn has_cycle(&self) -> bool {
+    pub fn has_cycle(&self) -> bool {
         match self.head {
             Some(ref head) => {
                 let ref fast = head.next;

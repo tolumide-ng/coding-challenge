@@ -7,12 +7,12 @@ struct Node {
     next: Option<Rc<Node>>,
 }
 
-struct LinkedList {
+pub struct LinkedList {
     head: Option<Rc<Node>>,
 }
 
 impl LinkedList {
-    fn cycle_position(&self) -> i32 {
+    pub fn cycle_position(&self) -> i32 {
         let mut loop_start = -1;
         match self.head {
             Some(ref head) => {
