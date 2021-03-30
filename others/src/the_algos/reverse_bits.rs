@@ -40,6 +40,7 @@ pub fn reverse_bits(input: usize) -> usize {
     for index in 0..bit_len {
         the_bit[index] = the_bit[index] * 2usize.pow((bit_len - index - 1) as u32);
     }
+    println!("{}", value);
 
     value = the_bit.iter().sum();
 

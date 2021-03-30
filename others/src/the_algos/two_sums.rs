@@ -8,19 +8,22 @@ pub fn two_sums(nums: Vec<usize>, target: usize) -> SumType {
     let mut result: SumType = None;
     let mut store: HashMap<usize, usize> = HashMap::new();
 
-    for index in 0..=nums.len() {
+    for index in 0..nums.len() {
         let current_value = nums[index];
-        let key = target - current_value;
 
-        match store.get(&key) {
-            Some(key) => {
-                result = Some(vec![*key, index]);
-                return result;
-            }
-            None => {
-                store.insert(current_value, index);
-            }
-        };
+        if current_value <= target {
+            let key = target - current_value;
+
+            match store.get(&key) {
+                Some(key) => {
+                    result = Some(vec![*key, index]);
+                    return result;
+                }
+                None => {
+                    store.insert(current_value, index);
+                }
+            };
+        }
     }
 
     result
@@ -65,18 +68,35 @@ pub fn two_sums_fast(nums: Vec<usize>, target: usize) -> SumType {
     return result;
 }
 
-mod test {
-    use super::*;
+// #[cfg(test)]
+// mod test_two_sums_mod {
+//     #[test]
+//     // fn two_sums_hash() {
+//     //     use super::two_sums;
+//     //     assert!(two_sums(vec![2, 5, 7, 11], 9).is_some());
+//     //     assert!(two_sums(vec![2, 5, 9, 11], 9).is_none());
+//     // }
+//     #[test]
+//     fn two_sums_fast_test() {
+//         use super::two_sums_fast;
+//         assert!(two_sums_fast(vec![2, 5, 7, 11], 9).is_some());
+//         assert!(two_sums_fast(vec![2, 5, 9, 11], 9).is_none());
+//     }
+// }
 
+#[cfg(test)]
+mod test_two_sum_mod {
     #[test]
-    fn two_sums_hash() {
-        assert!(two_sums(vec![2, 5, 7, 11], 9).is_some());
-        assert!(two_sums(vec![2, 5, 9, 11], 9).is_none());
+    fn test_two_sums_fast() {
+        use super::two_sums_fast;
+        assert!(two_sums_fast(vec![2, 5, 7, 11], 9).is_some());
+        assert!(two_sums_fast(vec![2, 5, 9, 11], 9).is_none());
     }
 
     #[test]
-    fn two_sums_fast_test() {
-        assert!(two_sums_fast(vec![2, 5, 7, 11], 9).is_some());
-        assert!(two_sums_fast(vec![2, 5, 9, 11], 9).is_none());
+    fn test_two_sums() {
+        use super::two_sums;
+        assert!(two_sums(vec![2, 5, 7, 11], 9).is_some());
+        assert!(two_sums(vec![2, 5, 9, 11], 9).is_none());
     }
 }

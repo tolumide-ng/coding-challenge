@@ -1,6 +1,6 @@
 use std::collections::VecDeque;
 
-struct WallsAndGates {
+pub struct WallsAndGates {
     grid: Vec<Vec<i16>>,
     queue: VecDeque<(usize, usize)>,
 }

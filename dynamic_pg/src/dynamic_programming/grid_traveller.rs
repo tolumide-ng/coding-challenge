@@ -1,5 +1,4 @@
 pub mod grid_traveller {
-    use std::cmp;
 
     use std::collections::HashMap;
     pub fn grid_traveller(m: usize, n: usize) -> usize {

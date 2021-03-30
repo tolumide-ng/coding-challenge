@@ -40,22 +40,20 @@ pub fn is_valid(s: String) -> bool {
     stack.is_empty()
 }
 
-struct TestHandler {
-    input: String,
-    output: bool,
-}
-
-impl TestHandler {
-    pub fn new(input: &str, output: bool) -> Self {
-        TestHandler {
-            input: String::from(input),
-            output,
-        }
-    }
-}
-
 #[cfg(test)]
 mod test_valid_parentheses_cont {
+    pub struct TestHandler {
+        input: String,
+        output: bool,
+    }
+    impl TestHandler {
+        pub fn new(input: &str, output: bool) -> Self {
+            TestHandler {
+                input: String::from(input),
+                output,
+            }
+        }
+    }
 
     use super::*;
 

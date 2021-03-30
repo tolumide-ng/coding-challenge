@@ -68,7 +68,7 @@ mod test_reverse_string_cont {
 
         assert_eq!(s, vec!['o', 'l', 'l', 'e', 'h']);
 
-        let mut pred = vec![
+        let pred = vec![
             "A", " ", "m", "a", "n", ",", " ", "a", " ", "p", "l", "a", "n", ",", " ", "a", " ",
             "c", "a", "n", "a", "l", ":", " ", "P", "a", "n", "a", "m", "a",
         ];

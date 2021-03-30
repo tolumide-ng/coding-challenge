@@ -6,20 +6,20 @@ use std::collections::HashMap;
 /// https://www.hackerrank.com/challenges/sherlock-and-valid-string/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=strings
 
 #[derive(Debug, PartialEq)]
-enum Answer {
+pub enum Answer {
     Yes,
     No,
 }
 
 #[derive(Debug, Default)]
-struct MinMax {
+pub struct MinMax {
     min_value: usize,
     min_count: usize,
     max_value: usize,
     max_count: usize,
 }
 
-fn valid_string(input: &str) -> Answer {
+pub fn valid_string(input: &str) -> Answer {
     let mut is_valid = Answer::No;
     let mut store: HashMap<char, usize> = HashMap::new();
 

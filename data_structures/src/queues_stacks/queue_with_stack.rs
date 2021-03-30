@@ -13,7 +13,7 @@ impl MyQueue {
         self.inbox.push(x);
     }
 
-    pub fn pop(&mut self, x: i32) {
+    pub fn pop(&mut self, _x: i32) {
         if let Some(a) = self.outbox.pop() {
             self.outbox.push(a);
         } else {

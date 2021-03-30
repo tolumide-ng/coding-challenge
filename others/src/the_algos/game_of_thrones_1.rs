@@ -3,12 +3,12 @@
 use std::collections::HashMap;
 
 #[derive(Debug, PartialEq)]
-enum Possible {
+pub enum Possible {
     YES,
     NO,
 }
 
-fn game_of_thrones_one(s: &str) -> Possible {
+pub fn game_of_thrones_one(s: &str) -> Possible {
     let mut number_of_odds = 0;
 
     let mut words_dic: HashMap<char, usize> = HashMap::new();

@@ -24,7 +24,7 @@ impl<T: Debug + Copy + Clone + Eq + PartialEq> TreeNode<T> {
 
 use std::fmt::Debug;
 
-fn build_tree<T: Debug + Copy + Clone + Eq + PartialEq>(
+pub fn build_tree<T: Debug + Copy + Clone + Eq + PartialEq>(
     inorder: Vec<T>,
     postorder: Vec<T>,
 ) -> BNode<T> {

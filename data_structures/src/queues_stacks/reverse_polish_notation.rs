@@ -48,15 +48,11 @@ pub fn eval_rpn(tokens: Vec<String>) -> i32 {
     return stack[0].parse::<i32>().unwrap();
 }
 
-use super::test_wrapper::TestHandler;
-
-fn turn_to_string(the_vec: Vec<&str>) -> Vec<String> {
+pub fn turn_to_string(the_vec: Vec<&str>) -> Vec<String> {
     let mut result = Vec::new();
-
     for value in the_vec {
         result.push(value.to_string());
     }
-
     return result;
 }
 
@@ -66,6 +62,7 @@ mod test_rpn_cont {
 
     #[test]
     fn test_rpn() {
+        use crate::queues_stacks::test_wrapper::TestHandler;
         let all_test = vec![
             TestHandler::new(turn_to_string(vec!["2", "1", "+", "3", "*"]), 9),
             TestHandler::new(turn_to_string(vec!["4", "13", "5", "/", "+"]), 6),

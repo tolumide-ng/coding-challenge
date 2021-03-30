@@ -89,6 +89,7 @@ fn remove_linked_elem() {
     list.append_end(String::from("node_5"));
     list.append_end(String::from("node_3"));
     list.append_end(String::from("node_6"));
+    list.append_end(String::from("node_5"));
 
     list.remove_element("node_1".to_string());
 
@@ -107,12 +108,7 @@ fn remove_linked_elem() {
         None => {}
     }
 
-    match list.head {
-        Some(ref head) => {
-            assert_eq!(head.borrow().data, "node_2");
-        }
-        None => {}
-    }
+    println!("THE LIST {:#?}", list);
 
     match list.tail {
         Some(ref tail) => {

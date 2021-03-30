@@ -1,10 +1,10 @@
-use crate::recursion::create_bst::{make_bst, TreeNode};
+use crate::recursion::create_bst::TreeNode;
 
 use std::cell::RefCell;
 use std::rc::Rc;
 
 pub fn search_bst(root: Option<Rc<RefCell<TreeNode>>>, val: i32) -> Option<Rc<RefCell<TreeNode>>> {
-    let mut found_root: Option<Rc<RefCell<TreeNode>>> = None;
+    let found_root: Option<Rc<RefCell<TreeNode>>> = None;
 
     match root {
         Some(ref the_root) => {
@@ -45,8 +45,8 @@ pub fn search_bst(root: Option<Rc<RefCell<TreeNode>>>, val: i32) -> Option<Rc<Re
 mod test_search_bst_cont {
     #[test]
     fn test_search_bst() {
-        use super::*;
+        // use super::*;
 
-        let input = vec![1, 2, 3, 4, 5, 6, 7];
+        // let input = vec![1, 2, 3, 4, 5, 6, 7];
     }
 }

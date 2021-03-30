@@ -119,7 +119,7 @@ fn test_find_ancestor() {
     let left = Some(Rc::new(RefCell::new(TreeNode::new(2))));
     let mut root = TreeNode::new(1);
     root.left = left;
-    let mut root = Some(Rc::new(RefCell::new(root)));
+    let root = Some(Rc::new(RefCell::new(root)));
 
     let x = Some(Rc::new(RefCell::new(TreeNode::new(1))));
     let y = Some(Rc::new(RefCell::new(TreeNode::new(2))));

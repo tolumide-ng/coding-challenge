@@ -3,8 +3,6 @@
 /// If there is no combination that adds up to the target_sum it should return null
 
 pub mod how_sum {
-
-    use std::cell::RefCell;
     use std::collections::HashMap;
 
     type ReturnType = Option<Vec<usize>>;

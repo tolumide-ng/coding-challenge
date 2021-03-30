@@ -1,9 +1,10 @@
 #[derive(Debug)]
-struct OrderDic {
+pub struct OrderDic {
     preparation_time: u8,
     order_number: u8,
 }
-fn jim_orders(orders: Vec<OrderDic>) -> Vec<u8> {
+
+pub fn jim_orders(orders: Vec<OrderDic>) -> Vec<u8> {
     let mut vec_store: Vec<OrdDetail> = vec![];
 
     struct OrdDetail {

@@ -7,8 +7,8 @@
 /// Can you do this using just one forward pass through the array?
 
 pub struct Buildings {
-    total: usize,
-    buildings: Vec<usize>,
+    pub total: usize,
+    pub buildings: Vec<usize>,
 }
 
 pub fn east_to_west(list: Vec<usize>) -> Buildings {

@@ -1,5 +1,5 @@
 #[derive(Clone, Default, Debug)]
-struct WallsAndGates {
+pub struct WallsAndGates {
     grid: Vec<Vec<i16>>,
     column_size: usize,
     row_size: usize,

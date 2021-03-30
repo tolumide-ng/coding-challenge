@@ -1,4 +1,3 @@
-use crate::binary_tree::priority_queue::{BinaryHeap, TheNode};
 use std::collections::VecDeque;
 
 #[derive(Debug, PartialEq, Eq)]
@@ -23,7 +22,7 @@ use std::cell::RefCell;
 use std::rc::Rc;
 
 #[derive(Debug)]
-struct NodeTimes {
+pub struct NodeTimes {
     node: Option<Rc<RefCell<TreeNode>>>,
     times: i32,
 }

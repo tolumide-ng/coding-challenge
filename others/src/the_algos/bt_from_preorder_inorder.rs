@@ -24,7 +24,7 @@ impl<T: Debug + Copy + Clone + Eq + PartialEq> TreeNode<T> {
 
 use std::fmt::Debug;
 
-fn build_tree<T: Debug + Copy + Clone + Eq + PartialEq>(
+pub fn build_tree<T: Debug + Copy + Clone + Eq + PartialEq>(
     preorder: Vec<T>,
     inorder: Vec<T>,
 ) -> BNode<T> {
@@ -34,7 +34,7 @@ fn build_tree<T: Debug + Copy + Clone + Eq + PartialEq>(
     return recursive_build_tree(&preorder[0..preorder_len], &inorder[0..inorder_len]);
 }
 
-fn recursive_build_tree<T: Debug + Copy + Clone + Eq + PartialEq>(
+pub fn recursive_build_tree<T: Debug + Copy + Clone + Eq + PartialEq>(
     preorder: &[T],
     inorder: &[T],
 ) -> BNode<T> {

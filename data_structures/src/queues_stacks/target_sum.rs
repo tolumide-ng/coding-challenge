@@ -1,8 +1,8 @@
-mod target_sum {
-    use std::{collections::HashMap, default};
+pub mod target_sum {
+    use std::collections::HashMap;
 
     #[derive(Debug, Default)]
-    struct TargetSum {
+    pub struct TargetSum {
         count: usize,
         numbers: Vec<u8>,
         target: i8,
@@ -27,7 +27,7 @@ mod target_sum {
     }
 
     impl TargetSum {
-        fn get_total(&mut self, sum: i8, index: usize) {
+        pub fn get_total(&mut self, sum: i8, index: usize) {
             if index >= self.numbers.len() {
                 return;
             }
@@ -61,8 +61,9 @@ mod target_sum {
     }
 
     impl TargetSum {
-        fn get_memoized_total(&mut self, sum: i8, index: usize) -> i8 {
+        pub fn get_memoized_total(&mut self, sum: i8, index: usize) -> i8 {
             let mut ans = 0;
+            println!("ans {}", ans);
 
             match self.memo.get(&(index, sum)) {
                 Some(content) => return *content,
@@ -106,7 +107,7 @@ mod target_sum {
 
         for number in numbers {
             for j in ((number)..=new_target).rev() {
-                let index = (j - number);
+                let index = j - number;
 
                 if index >= 0 {
                     dp[j as usize] = dp[j as usize] + dp.get(index as usize).unwrap();
