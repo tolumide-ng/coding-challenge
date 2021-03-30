@@ -1,4 +1,4 @@
-use crate::binary_tree::priority_queue::{BinaryHeap, TheNode};
+use crate::binary_tree::priority_queue::BinaryHeap;
 
 use std::fmt::{Debug, Display};
 
@@ -17,6 +17,8 @@ impl Ancestor {
         root: usize,
     ) -> Option<usize> {
         // let left_child =
+        println!("{}{}{}", x, y, root);
+
         return None;
     }
 }
@@ -96,7 +98,7 @@ where
 
 #[cfg(test)]
 mod test_lca {
-    use super::*;
+    use crate::binary_tree::priority_queue::{BinaryHeap, TheNode};
 
     #[test]
     fn gets_none_if_unavailable() {

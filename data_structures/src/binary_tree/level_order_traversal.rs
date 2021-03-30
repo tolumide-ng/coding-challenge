@@ -1,4 +1,4 @@
-use crate::binary_tree::priority_queue::{BinaryHeap, TheNode};
+use crate::binary_tree::priority_queue::BinaryHeap;
 use std::fmt::{Debug, Display};
 
 /// Level order traversal is also called Breadth-first search
@@ -7,7 +7,7 @@ impl<T> BinaryHeap<T>
 where
     T: PartialEq + Eq + Display + Debug + Copy + Clone,
 {
-    fn breadth_first_search(&self) -> Vec<T> {
+    pub fn breadth_first_search(&self) -> Vec<T> {
         let mut traversal = vec![];
         let mut queue = vec![];
         let mut curr_position = 0;
@@ -25,10 +25,6 @@ where
                 queue.push(right_index);
             }
 
-            println!("WHAT THE TRAVERSAL LOOKS LIKE {:#?}", traversal);
-            // let right_child = self.get_right_child()
-            println!("LENGTH OF THE QUEUE {:#?}", queue.len());
-            println!("THE QUEUE ITSELF {:#?}", queue);
             if curr_position > queue.len() {
                 break;
             }
@@ -42,11 +38,11 @@ where
 
 // #[cfg(test)]
 mod breadth_first_search {
-    use super::*;
-
+    // use super::*;
     #[test]
     fn test_breadth_first_search() {
         let mut tree = BinaryHeap::new(10);
+        use crate::binary_tree::priority_queue::{BinaryHeap, TheNode};
 
         tree.insert(TheNode {
             node: "A",
@@ -85,6 +81,7 @@ mod breadth_first_search {
 
     #[test]
     fn single_elem_beadth_first_test() {
+        use crate::binary_tree::priority_queue::{BinaryHeap, TheNode};
         let mut tree = BinaryHeap::new(10);
 
         tree.insert(TheNode {
@@ -97,6 +94,7 @@ mod breadth_first_search {
 
     #[test]
     fn double_elem_breath_first_test() {
+        use crate::binary_tree::priority_queue::{BinaryHeap, TheNode};
         let mut tree = BinaryHeap::new(10);
 
         tree.insert(TheNode {

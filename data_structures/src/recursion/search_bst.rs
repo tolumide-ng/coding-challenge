@@ -1,25 +1,11 @@
-#[derive(Debug, PartialEq, Eq)]
-pub struct TreeNode {
-    pub val: i32,
-    pub left: Option<Rc<RefCell<TreeNode>>>,
-    pub right: Option<Rc<RefCell<TreeNode>>>,
-}
-
-impl TreeNode {
-    #[inline]
-    pub fn new(val: i32) -> Self {
-        TreeNode {
-            val,
-            left: None,
-            right: None,
-        }
-    }
-}
+use crate::recursion::create_bst::{make_bst, TreeNode};
 
 use std::cell::RefCell;
 use std::rc::Rc;
 
 pub fn search_bst(root: Option<Rc<RefCell<TreeNode>>>, val: i32) -> Option<Rc<RefCell<TreeNode>>> {
+    let mut found_root: Option<Rc<RefCell<TreeNode>>> = None;
+
     match root {
         Some(ref the_root) => {
             if the_root.as_ref().borrow().val == val {
@@ -49,7 +35,18 @@ pub fn search_bst(root: Option<Rc<RefCell<TreeNode>>>, val: i32) -> Option<Rc<Re
             return None;
         }
     }
-    return None;
+
+    return found_root;
 }
 
 // pub fn recursive_search(root: Option<Rc<RefCell<TreeNode>>>, val: i32) {}
+
+#[cfg(test)]
+mod test_search_bst_cont {
+    #[test]
+    fn test_search_bst() {
+        use super::*;
+
+        let input = vec![1, 2, 3, 4, 5, 6, 7];
+    }
+}
