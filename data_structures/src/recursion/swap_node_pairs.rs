@@ -1,5 +1,3 @@
-use data_structures::linked_lists::linked_rcs;
-
 // definition for singly-linked list
 #[derive(Debug, PartialEq, Eq, Clone)]
 pub struct ListNode {
@@ -58,7 +56,7 @@ pub fn swap_pairs(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
                     None => {}
                 }
 
-                std::mem::replace(&mut second, the_second);
+                let _ = std::mem::replace(&mut second, the_second);
 
                 return second;
             } else {
