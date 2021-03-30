@@ -26,10 +26,9 @@ impl Drop for Node {
 }
 
 mod tests {
-    use super::*;
-
     #[test]
     fn test_new_node() {
+        use super::*;
         let node = Node::new("node_1".to_string());
 
         assert_eq!(

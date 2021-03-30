@@ -89,7 +89,7 @@ impl LinkedList {
                     self.head = Some(Rc::clone(&new_head));
                 }
                 _ => match &self.head {
-                    Some(x) => {}
+                    Some(_x) => {}
                     None => self.tail = None,
                 },
             }

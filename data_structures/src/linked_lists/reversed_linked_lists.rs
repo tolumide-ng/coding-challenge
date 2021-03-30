@@ -1,5 +1,5 @@
 use super::linked_rcs::LinkedList;
-use super::node::{NodeOption, NodeRef};
+use super::node::NodeOption;
 
 use std::rc::Rc;
 

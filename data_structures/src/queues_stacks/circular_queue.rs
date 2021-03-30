@@ -79,7 +79,7 @@ impl MyCircularQueue {
         return -1;
     }
 
-    fn rear(&self) -> i32 {
+    pub fn rear(&self) -> i32 {
         if self.tail.is_some() {
             let tail = self.tail.unwrap();
             return match self.queue.get(tail) {
@@ -90,7 +90,7 @@ impl MyCircularQueue {
         return -1;
     }
 
-    fn is_empty(&self) -> bool {
+    pub fn is_empty(&self) -> bool {
         if self.head.is_none() && self.tail.is_none() {
             return true;
         }

@@ -1,20 +1,20 @@
 use std::mem;
 
 #[derive(Debug, Clone)]
-struct Node {
+pub struct Node {
     value: i32,
     next: Option<Box<Node>>,
 }
 
 #[derive(Debug, Clone)]
-struct LL {
+pub struct LL {
     head: Option<Box<Node>>,
     tail: Option<Box<Node>>,
     total: usize,
 }
 
 impl LL {
-    fn new() -> Self {
+    pub fn new() -> Self {
         return LL {
             head: None,
             tail: None,
@@ -22,7 +22,7 @@ impl LL {
         };
     }
 
-    fn add_at_head(&mut self, value: i32) {
+    pub fn add_at_head(&mut self, value: i32) {
         // println!("BEFORE---------- ADDING TO RAIL{{{{{{{{ {:#?}", self.head);
 
         if self.total == 0 {
@@ -41,7 +41,7 @@ impl LL {
         self.total += 1;
     }
 
-    fn add_at_tail(&mut self, value: i32) {
+    pub fn add_at_tail(&mut self, value: i32) {
         match &mut self.head {
             Some(head) => {
                 let mut curr = head;
@@ -66,7 +66,7 @@ impl LL {
         self.total += 1;
     }
 
-    fn get(&self, index: i32) -> i32 {
+    pub fn get(&self, index: i32) -> i32 {
         if index < 0 || index >= self.total as i32 {
             return -1;
         }
@@ -86,7 +86,7 @@ impl LL {
         return curr_value.value;
     }
 
-    fn add_at_index(&mut self, index: i32, value: i32) {
+    pub fn add_at_index(&mut self, index: i32, value: i32) {
         if index > self.total as i32 || index < 0 {
             return;
         }
@@ -134,7 +134,7 @@ impl LL {
         }
     }
 
-    fn delete_at_index(&mut self, index: i32) {
+    pub fn delete_at_index(&mut self, index: i32) {
         if index >= self.total as i32 || index < 0 {
             return;
         }
@@ -182,42 +182,33 @@ impl LL {
     }
 }
 
-#[test]
-fn singly_ll() {
-    let mut list = LL::new();
-    list.add_at_head(2);
+#[cfg(test)]
+mod test_singly_ll_mod {
+    #[test]
+    fn singly_ll() {
+        use super::LL;
 
-    assert_eq!(list.get(1), -1);
-
-    list.delete_at_index(1);
-
-    list.add_at_head(2);
-
-    list.add_at_head(7);
-    assert_eq!(list.get(1), 2);
-
-    list.add_at_head(3);
-
-    list.add_at_head(2);
-
-    list.add_at_head(5);
-
-    list.add_at_tail(5);
-    assert_eq!(list.get(list.total as i32 - 1), 5);
-
-    list.get(5);
-
-    list.delete_at_index(6);
-    assert_eq!(list.get(0), 5);
-    assert_eq!(list.get(list.total as i32 - 1), 2);
-
-    list.delete_at_index(4);
-
-    list.delete_at_index(0);
-    assert_eq!(list.get(0), 2);
-
-    list.add_at_index(5, 55);
-
-    assert_ne!(list.get(list.total as i32 - 1), 55);
-    assert_eq!(list.get(list.total as i32 - 1), 2);
+        let mut list = LL::new();
+        list.add_at_head(2);
+        assert_eq!(list.get(1), -1);
+        list.delete_at_index(1);
+        list.add_at_head(2);
+        list.add_at_head(7);
+        assert_eq!(list.get(1), 2);
+        list.add_at_head(3);
+        list.add_at_head(2);
+        list.add_at_head(5);
+        list.add_at_tail(5);
+        assert_eq!(list.get(list.total as i32 - 1), 5);
+        list.get(5);
+        list.delete_at_index(6);
+        assert_eq!(list.get(0), 5);
+        assert_eq!(list.get(list.total as i32 - 1), 2);
+        list.delete_at_index(4);
+        list.delete_at_index(0);
+        assert_eq!(list.get(0), 2);
+        list.add_at_index(5, 55);
+        assert_ne!(list.get(list.total as i32 - 1), 55);
+        assert_eq!(list.get(list.total as i32 - 1), 2);
+    }
 }

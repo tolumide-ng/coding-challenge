@@ -43,23 +43,21 @@ pub fn bfs(current: i32, n: usize, level: i32, dic: &mut HashMap<i32, i32>) -> i
     return min;
 }
 
-struct TestHandler {
-    input: i32,
-    expected: i32,
-}
-
-impl TestHandler {
-    pub fn new(input: i32, expected: i32) -> Self {
-        TestHandler { input, expected }
-    }
-}
-
 #[cfg(test)]
 mod test_perfect_squares_cont {
     use super::*;
-
     #[test]
     fn test_perfect_squares() {
+        pub struct TestHandler {
+            input: i32,
+            expected: i32,
+        }
+        impl TestHandler {
+            pub fn new(input: i32, expected: i32) -> Self {
+                TestHandler { input, expected }
+            }
+        }
+
         let all_tests = vec![
             TestHandler::new(12, 3),
             TestHandler::new(13, 2),

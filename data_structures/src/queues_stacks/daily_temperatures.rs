@@ -25,10 +25,9 @@ pub fn daily_temperatures(t: Vec<i32>) -> Vec<i32> {
     chart
 }
 
-use super::test_wrapper::TestHandler;
-
 #[cfg(test)]
 mod test_daily_temps_cont {
+    use crate::queues_stacks::test_wrapper::TestHandler;
 
     use super::*;
 

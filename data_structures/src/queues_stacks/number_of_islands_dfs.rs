@@ -1,6 +1,5 @@
 use std::usize;
 
-struct Solution {}
 pub struct Position {
     column: usize,
     row: usize,

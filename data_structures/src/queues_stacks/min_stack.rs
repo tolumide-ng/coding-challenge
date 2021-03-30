@@ -1,17 +1,17 @@
-struct MinStack {
+pub struct MinStack {
     min: Option<i32>,
     store: Vec<i32>,
 }
 
 impl MinStack {
-    fn new() -> Self {
+    pub fn new() -> Self {
         MinStack {
             min: None,
             store: vec![],
         }
     }
 
-    fn push(&mut self, x: i32) {
+    pub fn push(&mut self, x: i32) {
         match self.min {
             Some(curr_min) => {
                 let new_min = std::cmp::min(curr_min, x);
@@ -23,7 +23,7 @@ impl MinStack {
         self.store.push(x);
     }
 
-    fn pop(&mut self) {
+    pub fn pop(&mut self) {
         match self.min {
             Some(curr_min) => {
                 let removed = self.store.pop().unwrap();
@@ -41,12 +41,12 @@ impl MinStack {
         }
     }
 
-    fn top(&self) -> i32 {
+    pub fn top(&self) -> i32 {
         // top would always be called on non-empty stacks
         return self.store[self.store.len() - 1];
     }
 
-    fn get_min(&self) -> i32 {
+    pub fn get_min(&self) -> i32 {
         // top would always be called on non-empty stacks
 
         return self.min.unwrap();

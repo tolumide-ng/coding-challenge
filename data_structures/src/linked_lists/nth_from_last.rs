@@ -3,7 +3,7 @@
 /// we will use 1-indexing. That means mth_to_last(1) is the "1st-to-last" element, or simply
 /// the last element in the list.
 use super::linked_rcs::LinkedList;
-use super::node::{Node, NodeOption};
+use super::node::NodeOption;
 
 use std::rc::Rc;
 
@@ -69,10 +69,9 @@ impl LinkedList {
 }
 
 mod test_nth_pointer {
-    use super::*;
-
     #[test]
     fn get_nth_elem_from_end() {
+        use super::*;
         let result = get_nth_elem(
             4,
             vec![
@@ -90,6 +89,7 @@ mod test_nth_pointer {
 
     #[test]
     fn get_nth_elem_empty() {
+        use super::*;
         let result = get_nth_elem(3, vec![]);
 
         assert!(result.is_none());
@@ -97,6 +97,7 @@ mod test_nth_pointer {
 
     #[test]
     fn get_not_enough_nth_elem() {
+        use super::*;
         let result = get_nth_elem(3, vec!["A".to_string()]);
 
         assert!(result.is_none());

@@ -5,6 +5,7 @@ use crate::queues_stacks::circular_queue::MyCircularQueue;
 impl MyCircularQueue {
     pub fn next(&mut self, value: i32) -> f32 {
         let mut val = value as f32;
+        println!("{}", val);
 
         if !self.is_full() {
             self.count += 1;

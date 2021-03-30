@@ -91,14 +91,14 @@ pub fn get_children(current: &str) -> Vec<String> {
 }
 
 #[derive(Debug)]
-struct Handler {
+pub struct Handler {
     deadlocks: Vec<String>,
     target: String,
     expected: i32,
 }
 
 impl Handler {
-    fn new(deadlocks: Vec<&str>, target: &str, expected: i32) -> Self {
+    pub fn new(deadlocks: Vec<&str>, target: &str, expected: i32) -> Self {
         let deadlocks: Vec<String> = deadlocks.iter().map(|x| String::from(*x)).collect();
 
         Handler {
