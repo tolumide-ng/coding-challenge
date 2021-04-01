@@ -17,6 +17,18 @@ pub mod fib {
         nums[1]
     }
 
+    pub fn fib_rec(n: i32) -> i32 {
+        tail_optimised(n, (0, 1))
+    }
+
+    pub fn tail_optimised(n: i32, arr: (i32, i32)) -> i32 {
+        if n == 1 {
+            return arr.1;
+        }
+
+        return tail_optimised(n - 1, (arr.1, arr.0 + arr.1));
+    }
+
     #[derive(Default)]
     struct FibMemo {
         store: HashMap<i32, i32>,
@@ -54,7 +66,7 @@ pub mod fib {
 
 #[cfg(test)]
 mod test_fibonacci_mod {
-    use crate::recursion::fibonacci::fib::{fib_fast, get_fib_memo};
+    use crate::recursion::fibonacci::fib::{fib_fast, fib_rec, get_fib_memo};
 
     #[test]
     fn test_fib_fast() {
@@ -70,5 +82,13 @@ mod test_fibonacci_mod {
         assert_eq!(get_fib_memo(3), 2);
         assert_eq!(get_fib_memo(4), 3);
         assert_eq!(get_fib_memo(7), 13);
+    }
+
+    #[test]
+    fn test_tail_optimised_fibonacci() {
+        assert_eq!(fib_rec(2), 1);
+        assert_eq!(fib_rec(3), 2);
+        assert_eq!(fib_rec(4), 3);
+        assert_eq!(fib_rec(7), 13);
     }
 }
