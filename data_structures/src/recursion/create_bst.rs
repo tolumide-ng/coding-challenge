@@ -1,10 +1,12 @@
 use std::collections::VecDeque;
 
+pub type NodeT = Option<Rc<RefCell<TreeNode>>>;
+
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {
     pub val: i32,
-    pub left: Option<Rc<RefCell<TreeNode>>>,
-    pub right: Option<Rc<RefCell<TreeNode>>>,
+    pub left: NodeT,
+    pub right: NodeT,
 }
 
 impl TreeNode {
@@ -23,7 +25,7 @@ use std::rc::Rc;
 
 #[derive(Debug)]
 pub struct NodeTimes {
-    node: Option<Rc<RefCell<TreeNode>>>,
+    node: NodeT,
     times: i32,
 }
 
@@ -40,7 +42,7 @@ impl NodeTimes {
     }
 }
 
-pub fn make_bst(list: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
+pub fn make_bst(list: Vec<i32>) -> NodeT {
     let mut queue: VecDeque<NodeTimes> = VecDeque::new();
 
     if list.is_empty() {
