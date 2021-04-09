@@ -4,6 +4,7 @@ pub mod create_bst;
 pub mod fibonacci;
 pub mod kth_symbol_in_grammar;
 pub mod make_ll;
+pub mod merge_sort;
 pub mod merge_two_sorted_lists;
 pub mod pascals_triangle;
 pub mod pow_x_n;
