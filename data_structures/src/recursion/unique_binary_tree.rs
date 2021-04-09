@@ -22,18 +22,18 @@ use std::cell::RefCell;
 use std::rc::Rc;
 
 #[derive(Debug)]
-struct Solution {
+struct UniqueBst {
     // since constraint already state that n is 1 <= n <= 8, we can caceh a 2,3 tree as either 23 or 32
     cache: HashMap<String, Vec<Option<Rc<RefCell<TreeNode>>>>>,
     n: i32,
 }
 
 pub fn gen_trees(n: i32) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
-    let mut dd = Solution::new(n);
+    let mut dd = UniqueBst::new(n);
     return dd.generate_trees(n);
 }
 
-impl Solution {
+impl UniqueBst {
     pub fn new(n: i32) -> Self {
         Self {
             cache: HashMap::new(),
