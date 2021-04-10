@@ -11,5 +11,6 @@ pub mod pow_x_n;
 pub mod reverse_linked_list;
 pub mod reverse_string;
 pub mod search_bst;
+pub mod sort_an_array;
 pub mod swap_node_pairs;
 pub mod unique_binary_tree;
