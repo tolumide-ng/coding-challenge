@@ -64,6 +64,7 @@ impl ValidBST {
         }
         match root {
             Some(the_root) => {
+                println!("what the root is made up of {:#?}", the_root);
                 match &the_root.borrow().left {
                     Some(the_left) => {
                         if !self.inorder_recursive_traversal_approach(Some(Rc::clone(&the_left))) {
@@ -89,22 +90,6 @@ impl ValidBST {
         }
         return true;
     }
-
-    pub fn inorder_iterative_traversal_approach(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
-        let mut stack = vec![];
-        let mut prev = i32::MIN;
-
-        let mut root = Some(Rc::clone(&root.as_ref().unwrap()));
-
-        while !stack.is_empty() || root.as_ref().is_some() {
-            while root.is_some() {
-                stack.push(Some(Rc::clone(&root.as_ref().unwrap())));
-                // root = Some(Rc::clone)
-            }
-        }
-
-        return true;
-    }
 }
 
 #[cfg(test)]
@@ -116,12 +101,12 @@ mod test_validate_bst_mod {
 
     #[test]
     fn test_validate_possible_bst() {
-        // let list = vec![4, 1];
+        let list = vec![4, 1];
 
-        // let bst = make_bst(list);
+        let bst = make_bst(list);
 
-        // assert_eq!(is_valid_bst(bst), true);
-        // assert_eq!(is_valid_bst(None), true);
+        assert_eq!(is_valid_bst(bst), true);
+        assert_eq!(is_valid_bst(None), true);
         let bst = make_bst(vec![1, 1]);
         assert_eq!(is_valid_bst(bst), false);
     }
@@ -145,15 +130,15 @@ mod test_validate_bst_mod {
 
         assert_eq!(is_valid_bst(the_node), false);
 
-        // let the_node = Some(Rc::new(RefCell::new(TreeNode::new(2))));
+        let the_node = Some(Rc::new(RefCell::new(TreeNode::new(2))));
 
-        // the_node.as_ref().unwrap().borrow_mut().left =
-        //     Some(Rc::new(RefCell::new(TreeNode::new(1))));
+        the_node.as_ref().unwrap().borrow_mut().left =
+            Some(Rc::new(RefCell::new(TreeNode::new(1))));
 
-        // the_node.as_ref().unwrap().borrow_mut().right =
-        //     Some(Rc::new(RefCell::new(TreeNode::new(3))));
+        the_node.as_ref().unwrap().borrow_mut().right =
+            Some(Rc::new(RefCell::new(TreeNode::new(3))));
 
-        // assert_eq!(is_valid_bst(the_node), true);
+        assert_eq!(is_valid_bst(the_node), true);
     }
 
     #[test]
@@ -191,7 +176,7 @@ mod test_validate_bst_mod {
 
     #[test]
     fn test_minimum_possible_node() {
-        let the_node = Some(Rc::new(RefCell::new(TreeNode::new(-2147483648))));
+        let the_node = Some(Rc::new(RefCell::new(TreeNode::new(-2147483647))));
 
         assert_eq!(is_valid_bst(the_node), true);
     }
