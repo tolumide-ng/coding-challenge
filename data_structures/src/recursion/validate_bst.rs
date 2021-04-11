@@ -162,8 +162,6 @@ mod test_validate_bst_mod {
         the_node.as_ref().unwrap().borrow_mut().right =
             Some(Rc::clone(right_node.as_ref().unwrap()));
 
-        // println!("what the node looks like {:#?}", the_node);
-
         assert_eq!(is_valid_bst(the_node), false);
     }
 
