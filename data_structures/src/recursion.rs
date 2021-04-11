@@ -15,3 +15,4 @@ pub mod search_bst;
 pub mod sort_an_array;
 pub mod swap_node_pairs;
 pub mod unique_binary_tree;
+pub mod validate_bst;
