@@ -43,7 +43,7 @@ pub fn find_target(
     let pivot_row = ((row_start + row_end) / 2) as usize;
     let pivot_col = ((column_start + column_end) / 2) as usize;
 
-    let mut all_points: Vec<Position> = vec![
+    let all_points: Vec<Position> = vec![
         Position {
             // top-right
             c_s: (pivot_col + 1) as i32,
