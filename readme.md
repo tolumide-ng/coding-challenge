@@ -4,6 +4,8 @@
 
 Using this as an opportunity to improve my knowledge of rust lang
 
+> > If you found this repo useful to you, add a star :thumbs-up
+
 ### Please Note
 
 > > > \*If the rust and js cell of a row is empty, it means the solution is present on the title col of that specific row. This is owing to changes in how this table used to be. Updates would be made later to ensure consistency
