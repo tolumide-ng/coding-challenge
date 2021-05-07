@@ -4,4 +4,5 @@ members=[
     "dynamic_pg",
     "data_structures",
     "others",
+    "rust_async"
 ]

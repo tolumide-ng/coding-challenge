@@ -16,3 +16,7 @@ version = "0.1.0"
 dependencies = [
  "data_structures",
 ]
+
+[[package]]
+name = "rust_async"
+version = "0.1.0"
