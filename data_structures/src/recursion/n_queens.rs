@@ -1,4 +1,4 @@
-use std::fmt::{Debug, Display};
+use std::fmt::Debug;
 #[derive(Debug)]
 struct Position {
     row: i32,

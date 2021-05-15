@@ -1,4 +1,4 @@
-use std::{collections::HashSet, fmt::format};
+use std::collections::HashSet;
 
 /// Given a robot cleaner in a room modeled as a grid.
 /// Each cell in the grid can be empty or blocked.
