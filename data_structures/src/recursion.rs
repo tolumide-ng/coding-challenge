@@ -14,6 +14,7 @@ pub mod quick_sort;
 pub mod reverse_linked_list;
 pub mod reverse_string;
 // pub mod robots_room_cleaner;
+pub mod combination;
 pub mod search_2d_matrix;
 pub mod search_bst;
 pub mod sort_an_array;
