@@ -99,3 +99,21 @@ pub fn is_same_tree(p: Option<Rc<RefCell<TreeNode>>>, q: Option<Rc<RefCell<TreeN
 
     return is_equal;
 }
+
+pub fn recursive_is_same(
+    p: Option<Rc<RefCell<TreeNode>>>,
+    q: Option<Rc<RefCell<TreeNode>>>,
+) -> bool {
+    match (p, q) {
+        (Some(pn), None) => false,
+        (None, Some(qn)) => false,
+        (Some(pn), Some(qn)) => {
+            let val_same = pn.borrow().val == qn.borrow().val;
+
+            val_same
+                && recursive_is_same(pn.borrow().left.clone(), qn.borrow().left.clone())
+                && recursive_is_same(pn.borrow().right.clone(), qn.borrow().right.clone())
+        }
+        (None, None) => true,
+    }
+}
