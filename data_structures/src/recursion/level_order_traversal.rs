@@ -38,19 +38,17 @@ pub fn level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<i32>> {
                     let current = queue.pop_front();
                     match current {
                         Some(ref the_current) => {
-                            if the_current.as_ref().borrow().left.is_some() {
-                                queue.push_back(Rc::clone(
-                                    the_current.as_ref().borrow().left.as_ref().unwrap(),
-                                ));
+                            let the_node = the_current.as_ref().borrow();
+
+                            if let Some(left) = &the_node.left {
+                                queue.push_back(Rc::clone(left));
                             }
 
-                            if the_current.as_ref().borrow().right.is_some() {
-                                queue.push_back(Rc::clone(
-                                    the_current.as_ref().borrow().right.as_ref().unwrap(),
-                                ));
+                            if let Some(right) = &the_node.right {
+                                queue.push_back(Rc::clone(right));
                             }
 
-                            current_level.push(the_current.as_ref().borrow().val);
+                            current_level.push(the_node.val);
                         }
                         None => {}
                     }
@@ -63,4 +61,34 @@ pub fn level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<i32>> {
     }
 
     return output;
+}
+
+pub fn recursive_level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<i32>> {
+    type Node = Rc<RefCell<TreeNode>>;
+
+    let mut output: Vec<Vec<i32>> = vec![];
+
+    fn traverse(node: &Node, output: &mut Vec<Vec<i32>>, depth: usize) {
+        let n = node.borrow();
+
+        if output.len() == depth {
+            output.push(Vec::new())
+        }
+
+        output[depth].push(n.val);
+
+        if let Some(l) = &n.left {
+            traverse(&l, output, depth + 1)
+        }
+
+        if let Some(r) = &n.right {
+            traverse(&r, output, depth + 1)
+        }
+    }
+
+    if let Some(root) = root {
+        traverse(&root, &mut output, 0);
+    }
+
+    output
 }
