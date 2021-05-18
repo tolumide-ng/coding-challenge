@@ -16,6 +16,7 @@ pub mod reverse_string;
 // pub mod robots_room_cleaner;
 pub mod combination;
 pub mod generate_parenthesis;
+pub mod level_order_traversal;
 pub mod same_tree;
 pub mod search_2d_matrix;
 pub mod search_bst;
