@@ -17,6 +17,7 @@ pub mod reverse_string;
 pub mod combination;
 pub mod generate_parenthesis;
 pub mod largest_histogram;
+pub mod letter_combinations;
 pub mod level_order_traversal;
 pub mod permutations;
 pub mod same_tree;
