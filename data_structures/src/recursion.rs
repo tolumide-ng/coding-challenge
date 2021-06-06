@@ -28,3 +28,4 @@ pub mod sudoku_player;
 pub mod swap_node_pairs;
 pub mod unique_binary_tree;
 pub mod validate_bst;
+pub mod skyline_problem;
